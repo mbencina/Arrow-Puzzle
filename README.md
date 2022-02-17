@@ -1,7 +1,8 @@
 # Activation game for child psychiatric services
 This a repository for our group attending the Software Engineering Project course at Tampere University
 
-Instructions on how to run the project on Unity3D:
+## Running the app
+Steps to run the project on Unity3D:
 
 1. Go to Unity hub and open a project from disk (select Arrow-Puzzle-master folder)
 2. To activate the scene go to Assets and select Scenes --> SampleScene.unity
