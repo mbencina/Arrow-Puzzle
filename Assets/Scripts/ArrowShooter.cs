@@ -20,8 +20,8 @@ public class ArrowShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* if (OVRInput.Get(OVRInput.Button.One)){
+        if (OVRInput.Get(OVRInput.Axis1)){
             Debug.Log("A button pressed");
-        } */
+        }
     }
 }
