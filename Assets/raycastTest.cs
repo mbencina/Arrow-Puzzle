@@ -19,8 +19,9 @@ public class raycastTest : MonoBehaviour
         if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit))
         {
 
-                Crosshair.transform.localPosition = Hit.transform.position;
+                Crosshair.transform.position = Hit.point;
                 Debug.Log(Hit.transform.position);
+                Debug.Log(Hit.transform.name);
             
         }
 
