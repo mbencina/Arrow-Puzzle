@@ -2690,6 +2690,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2835,6 +2836,19 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   m_HasMigratedActions: 1
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da093910ac603442be823c474d99456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 0}
 --- !u!1 &1035347318 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1063203228461421988, guid: cb6fd53c9ad79d5419716906f134ab4d, type: 3}

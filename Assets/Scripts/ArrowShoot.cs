@@ -18,6 +18,6 @@ public class ArrowShoot : MonoBehaviour
     {
         // arrow.transform() +=  * 10.0f;
         // transform.position = Vector3.forward;
-        transform.Translate(direction * 1.5f * Time.deltaTime);
+        transform.Translate(direction * 5.0f * Time.deltaTime);
     }
 }
