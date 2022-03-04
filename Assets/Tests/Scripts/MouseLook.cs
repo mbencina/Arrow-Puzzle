@@ -7,7 +7,7 @@ public class MouseLook : MonoBehaviour
 {
     public InputActionReference horizontalLook;
     public InputActionReference verticalLook;
-    public float lookSpeed = 1f;
+    public float lookSpeed = 0.2f;
     public Transform cameraTransform;
 
     float pitch;

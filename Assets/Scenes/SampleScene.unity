@@ -1819,7 +1819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalLook: {fileID: -5066056195161204825, guid: 4f9742837539fe04ea111f7a8b5d33ce, type: 3}
   verticalLook: {fileID: 5658417216622671862, guid: 4f9742837539fe04ea111f7a8b5d33ce, type: 3}
-  lookSpeed: 1
+  lookSpeed: 0.2
   cameraTransform: {fileID: 528258822}
 --- !u!136 &563108161
 CapsuleCollider:
