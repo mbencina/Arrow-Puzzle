@@ -433,7 +433,6 @@ GameObject:
   - component: {fileID: 91743550}
   - component: {fileID: 91743549}
   - component: {fileID: 91743548}
-  - component: {fileID: 91743551}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -517,20 +516,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91743546}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &91743551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91743546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d0cb258603249a38360db6994a9393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Crosshair: {fileID: 1990469361}
-  Gun: {fileID: 91743547}
 --- !u!1 &165585583 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2357202460183831334, guid: cb6fd53c9ad79d5419716906f134ab4d, type: 3}
@@ -1843,7 +1828,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515009726}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2081,8 +2066,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ValidColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.09803922, g: 0.9372549, b: 0, a: 1}
+    key1: {r: 0.09803922, g: 0.9372549, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2110,9 +2095,9 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   m_InvalidColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0, b: 0, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
+    key1: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -2120,7 +2105,7 @@ MonoBehaviour:
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 65535
-    ctime2: 0
+    ctime2: 65535
     ctime3: 0
     ctime4: 0
     ctime5: 0
@@ -2513,6 +2498,25 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 875253871413052681, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!1 &696230798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 10846f127bb923546911ad8462e9b0f7, type: 3}
+  m_PrefabInstance: {fileID: 834768169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &696230799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696230798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d0cb258603249a38360db6994a9393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Crosshair: {fileID: 1990469361}
+  Gun: {fileID: 834768170}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,23 +2718,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10846f127bb923546911ad8462e9b0f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10846f127bb923546911ad8462e9b0f7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5213339
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10846f127bb923546911ad8462e9b0f7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5213339
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10846f127bb923546911ad8462e9b0f7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.4777144
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10846f127bb923546911ad8462e9b0f7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.4777144
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10846f127bb923546911ad8462e9b0f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2742,7 +2746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10846f127bb923546911ad8462e9b0f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 85
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 10846f127bb923546911ad8462e9b0f7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6127,7 +6131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990469360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 218945592}
@@ -6223,7 +6227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084861102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 218945592}
@@ -6271,8 +6275,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ValidColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.09803922, g: 0.9372549, b: 0, a: 1}
+    key1: {r: 0.09803922, g: 0.9372549, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -6300,8 +6304,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   m_InvalidColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0, b: 0, a: 1}
+    key0: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
+    key1: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}

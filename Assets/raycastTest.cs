@@ -16,13 +16,14 @@ public class raycastTest : MonoBehaviour
     {
         RaycastHit Hit;
 
-        if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit))
+        if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit))
         {
 
                 Crosshair.transform.position = Hit.point;
                 Debug.Log(Hit.transform.position);
                 Debug.Log(Hit.transform.name);
-            
+                Debug.DrawRay(Gun.transform.position, -Gun.transform.right, Color.green);
+
         }
 
     }
