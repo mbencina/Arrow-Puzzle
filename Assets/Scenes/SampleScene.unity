@@ -5982,8 +5982,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieces: []
   canvas: {fileID: 1542124698}
-  leftMultiplier: 0.9157089
-  rightMultiplier: -0.78927207
   max: 20
   min: -20
   bubbleMax: 2
@@ -6155,7 +6153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1974244613
 BoxCollider:
   m_ObjectHideFlags: 0

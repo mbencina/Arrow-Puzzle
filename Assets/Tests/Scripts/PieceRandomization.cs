@@ -8,14 +8,15 @@ public class PieceRandomization : MonoBehaviour
     public List<GameObject> pieces = new List<GameObject>();
     public GameObject canvas;
 
-    public float leftMultiplier = 3.39f/2.61f;
-    public float rightMultiplier = - 3.06f/2.61f;
+    public Vector3 vector = new Vector3 (0,0,0);
 
-    public float max = 20;
-    public float min = -20;
+    public int max = 20;
+    public int min = -20;
 
-    public float bubbleMax = 2;
-    public float bubbleMin = -2;
+    public int bubbleMax = 2;
+    public int bubbleMin = -2;
+
+    public bool flag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,19 +54,17 @@ public class PieceRandomization : MonoBehaviour
     {
         foreach(GameObject piece in pieces)
         {
-            Debug.Log("NEW");
-            Vector3 place = GenerateVector();
+            Debug.Log("NEW");GenerateVector();
             
-            piece.transform.position = place;
-            Debug.Log("Position " + place);
+            piece.transform.position = vector;
+            Debug.Log("Position " + vector);
         }
     }
 
     /// <summary>
     /// Generates random vectors between given max and min values
     /// </summary>
-    /// <returns>Random 3D vector</returns>
-    public Vector3 GenerateVector ()
+    public void GenerateVector ()
     {
         Vector3 place = new Vector3(Random.Range(min, max), Random.Range(0, max), Random.Range(min, max));
         if (place.x >= bubbleMin && place.x <= bubbleMax &&
@@ -75,7 +74,10 @@ public class PieceRandomization : MonoBehaviour
         {
             GenerateVector();
         }
-        return place
+        else
+        {
+            vector = place;
+        }
 ;    }
 
     /// <summary>
@@ -85,7 +87,8 @@ public class PieceRandomization : MonoBehaviour
     /// <returns>Truth value on if the piece is on or behind the table or not</returns>
     public bool IsOnTable (Vector3 place)
     {
-        if (place.z <= 0 && System.Math.Abs(place.z) > System.Math.Abs(place.x))
+        Debug.Log("ABS " + System.Math.Abs(place.z) + " " + System.Math.Abs(place.x));
+        if (place.z <= 0 && System.Math.Abs(place.z) >= System.Math.Abs(place.x))
         {
             Debug.Log("TRUE");
             return true;
