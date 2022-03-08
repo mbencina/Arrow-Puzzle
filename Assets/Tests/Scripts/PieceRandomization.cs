@@ -57,7 +57,7 @@ public class PieceRandomization : MonoBehaviour
             Debug.Log("NEW");GenerateVector();
             
             piece.transform.position = vector;
-            Debug.Log("Position " + vector);
+            Debug.Log("Vector " + vector);
         }
     }
 
