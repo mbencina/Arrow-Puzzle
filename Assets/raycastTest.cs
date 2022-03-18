@@ -11,6 +11,9 @@ public class raycastTest : MonoBehaviour
         
     // }
 
+    // Maximum raycast distance:
+    public float maximumDistance = 50;
+
     // Reference to the crosshair object:
     public Transform Crosshair;
     // Reference to the gun i.e. bow:
@@ -47,15 +50,25 @@ public class raycastTest : MonoBehaviour
         }
     }
 
-    void move(Transform objectToMove, Vector3 pos) {
+    // Moves the object at the end of the raycast:
+    void move(Transform objectToMove, Vector3 pos, Transform Crosshair) {
+        // Change position:
         objectToMove.position = pos;
+
+        // Get rotation from crosshair:
+        float xRot = Crosshair.localRotation.eulerAngles.x;
+        float yRot = Crosshair.localRotation.eulerAngles.y;
+        float zRot = Crosshair.localRotation.eulerAngles.z;
+
+        // Rotate the object at the end of raycast (piece):
+        objectToMove.Rotate(xRot, yRot, zRot, Space.Self);
     }
  
     // Update is called once per frame
     void Update() {
         RaycastHit Hit;
 
-        if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit))
+        if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit, maximumDistance))
         {
                 // Move the crosshair:
                 Crosshair.transform.position = Hit.point;
@@ -79,7 +92,7 @@ public class raycastTest : MonoBehaviour
                 // If the controller is toggled, the piece picked for moving, 
                 // the object is moved along the raycast:
                 if (toggle && moving) {
-                    move(MoveObject, Hit.point);
+                    move(MoveObject, Hit.point, Crosshair);
                 }
 
                 // If controller is not toggled, the collider is set on again 

@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class ArrowShooter : MonoBehaviour
 {
+    // Reference to the crosshair object:
+    public Transform Crosshair;
+
     public InputActionReference testReference = null;
     public int maxDist = 8;
 
@@ -32,7 +35,7 @@ public class ArrowShooter : MonoBehaviour
         // flying arrows
         if (arrowFlying) {
             bool resetArrow = false;
-            gameObject.transform.Translate(direction * 5.0f * Time.deltaTime);
+            gameObject.transform.Translate(Crosshair.position * 5.0f * Time.deltaTime);
             float dist = Vector3.Distance(initialPosition, gameObject.transform.position);
             // Debug.Log(dist);
             if (dist > maxDist) {

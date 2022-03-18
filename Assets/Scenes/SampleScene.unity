@@ -2516,6 +2516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d0cb258603249a38360db6994a9393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumDistance: 7
   Crosshair: {fileID: 1990469361}
   Gun: {fileID: 834768170}
   testReference: {fileID: 2376951922921116496, guid: c348712bda248c246b8c49b3db54643f, type: 3}
@@ -5199,6 +5200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ee2172eaa116748aa07d264f86e70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Crosshair: {fileID: 1990469361}
   testReference: {fileID: 7863665606143736270, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   maxDist: 8
 --- !u!1 &1562069058 stripped
