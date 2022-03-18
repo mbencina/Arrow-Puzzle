@@ -28,21 +28,21 @@ public class raycastTest : MonoBehaviour
     private bool moving = false;
     // Function that moves the transform to given position.
 
-    private bool toggle;
+    private bool toggle = false;
 
     private void Awake() {
-        testReference.action.started += UpdateInteract;
+        testReference.action.started += DoAction;
     }
 
     private void OnDestroy() {
-        testReference.action.started -= UpdateInteract;
+        testReference.action.started -= DoAction;
     }
 
-    void UpdateInteract(InputAction.CallbackContext context)
+    private void DoAction(InputAction.CallbackContext ctx)
     {
-        if (context.started) {
+        if (!toggle) {
             toggle = true;
-        } else if (context.canceled) {
+        } else {
             toggle = false;
         }
     }
