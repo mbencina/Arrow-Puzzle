@@ -17,7 +17,7 @@ public class raycastTest : MonoBehaviour
     public Transform Gun;
 
     // Add the controller input here:
-    // public InputActionReference testReference = null;
+    public InputActionReference testReference = null;
 
     // The object that is moved:
     private Transform MoveObject;
@@ -27,6 +27,20 @@ public class raycastTest : MonoBehaviour
     // State of the object that is moved - moving or not:
     private bool moving = false;
     // Function that moves the transform to given position.
+
+    private bool toggle;
+
+    private void Awake() {
+        testReference.action.started += DoAction;
+    }
+
+    private void OnDestroy() {
+        testReference.action.started -= DoAction;
+    }
+
+    private void DoAction(InputAction.CallbackContext ctx) {
+        toggle = true;
+    }
 
     void move(Transform objectToMove, Vector3 pos) {
         objectToMove.position = pos;
@@ -47,7 +61,7 @@ public class raycastTest : MonoBehaviour
                 Debug.DrawRay(Gun.transform.position, -Gun.transform.right, Color.green);
                 // If the controller is toggled, the moving not enabled and hit is a puzzle piece:
                 
-                if (true && !moving && Hit.transform.name.Contains("Plane")) { // Change true to the correct signal from controller
+                if (toggle && !moving && Hit.transform.name.Contains("Plane")) { // Change true to the correct signal from controller
                     // Turn off collider
                     MoveCollider = Hit.collider;
                     Hit.collider.enabled = false;
@@ -59,14 +73,14 @@ public class raycastTest : MonoBehaviour
                 } 
                 // If the controller is toggled, the piece picked for moving, 
                 // the object is moved along the raycast:
-                if (true && moving) {
+                if (toggle && moving) {
                     move(MoveObject, Hit.point);
                 }
 
                 // If controller is not toggled, the collider is set on again 
                 // and the state set to not moving. Finally, the object to move
                 // is set to null:
-                if (false && moving) { // Change false to input signal showing the controller is not toggled.
+                if (!toggle && moving) { // Change false to input signal showing the controller is not toggled.
                     MoveCollider.enabled = true;
                     MoveCollider = null;
                     MoveObject = null;
