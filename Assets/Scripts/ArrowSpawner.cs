@@ -12,8 +12,8 @@ public class ArrowSpawner : MonoBehaviour
     List<GameObject> ArrowList = new List<GameObject>();
 
     //HELI Rotation variables:
-    Vector3 startingPoint = new Vector3(0.5f, 0, 0.5f);
-    Vector3 target = new Vector3(40, 20, 40);
+    /*Vector3 startingPoint = new Vector3(0.5f, 0, 0.5f);
+    Vector3 target = new Vector3(40, 20, 40);*/
 
     //public GameObject crosshair;
     //HELI
@@ -34,11 +34,11 @@ public class ArrowSpawner : MonoBehaviour
         // flying arrows
         for (int i = 0; i < ArrowList.Count; i++)
         {
-            //ArrowList[i].transform.Translate(directionList[i] * 5f * Time.deltaTime); 
+            ArrowList[i].transform.Translate(directionList[i] * 5f * Time.deltaTime); 
 
             //HELI
-            // Moving the array towards the target point.
-            ArrowList[i].transform.position = Vector3.MoveTowards(ArrowList[i].transform.position, target, Time.deltaTime * 10f);
+            /*// Moving the array towards the target point.
+            ArrowList[i].transform.position = Vector3.MoveTowards(ArrowList[i].transform.position, target, Time.deltaTime * 10f);*/
             //HELI
         }
     }
@@ -47,8 +47,8 @@ public class ArrowSpawner : MonoBehaviour
     {
         for (int i = 0; i < numberToSpawn; i++)
         {
-            //ArrowList.Add(Instantiate(arrowObject, transform.position, Quaternion.Euler(90, 90, 0)));
-            //directionList.Add(direction);
+            ArrowList.Add(Instantiate(arrowObject, transform.position, Quaternion.Euler(90, 90, 0)));
+            directionList.Add(direction);
             // TODO if we want to use the bottom one we need to adjust Quaternion rotation
             // directionList.Add(direction + new Vector3(0, Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f)));
 
@@ -57,7 +57,7 @@ public class ArrowSpawner : MonoBehaviour
             /* When using the crosshair, change "target" to crosshair.transform.position:
              * target = crosshair.transform.position 
              * This is not tested yet, but it's my first idea*/
-
+            /*
             // Adding another arrow to ArrowList
             ArrowList.Add(Instantiate(arrowObject, transform.position, Quaternion.Euler(90, 90, 0)));
             // Adding the direction of the current arrow to directionList
@@ -84,7 +84,7 @@ public class ArrowSpawner : MonoBehaviour
 
             // Just for test purposes changing the sing of the x cordinate of target.
             target.x *= -1;
-
+            */
             //HELI
 
 
