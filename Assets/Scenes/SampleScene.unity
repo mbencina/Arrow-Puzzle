@@ -2518,6 +2518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Crosshair: {fileID: 1990469361}
   Gun: {fileID: 834768170}
+  testReference: {fileID: 2376951922921116496, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
