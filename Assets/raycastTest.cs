@@ -31,15 +31,20 @@ public class raycastTest : MonoBehaviour
     private bool toggle;
 
     private void Awake() {
-        testReference.action.started += DoAction;
+        testReference.action.started += UpdateInteract;
     }
 
     private void OnDestroy() {
-        testReference.action.started -= DoAction;
+        testReference.action.started -= UpdateInteract;
     }
 
-    private void DoAction(InputAction.CallbackContext ctx) {
-        toggle = true;
+    void UpdateInteract(InputAction.CallbackContext context)
+    {
+        if (context.started) {
+            toggle = true;
+        } else if (context.canceled) {
+            toggle = false;
+        }
     }
 
     void move(Transform objectToMove, Vector3 pos) {
