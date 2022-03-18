@@ -10,11 +10,11 @@ public class PieceRandomization : MonoBehaviour
 
     public Vector3 vector = new Vector3 (0,0,0);
 
-    public int max = 20;
-    public int min = -20;
+    public int max = 6;
+    public int min = -6;
 
-    public int bubbleMax = 2;
-    public int bubbleMin = -2;
+    public int bubbleMax = 1;
+    public int bubbleMin = -1;
 
     public bool flag = false;
 
