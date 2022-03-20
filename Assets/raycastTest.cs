@@ -68,7 +68,7 @@ public class raycastTest : MonoBehaviour
     void Update() {
         RaycastHit Hit;
 
-        if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit, maximumDistance))
+        if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit))
         {
                 // Move the crosshair:
                 Crosshair.transform.position = Hit.point;
