@@ -54,7 +54,8 @@ public class PieceRandomization : MonoBehaviour
     {
         foreach(GameObject piece in pieces)
         {
-            Debug.Log("NEW");GenerateVector();
+            Debug.Log("NEW");
+            GenerateVector();
             
             piece.transform.position = vector;
             Debug.Log("Vector " + vector);
