@@ -84,7 +84,7 @@ public class raycastTest : MonoBehaviour
                 Debug.DrawRay(Gun.transform.position, -Gun.transform.right, Color.green);
                 // If the controller is toggled, the moving not enabled and hit is a puzzle piece:
                 
-                if (!toggle && !moving && Hit.transform.name.Contains("Plane")) { // Change true to the correct signal from controller
+                if (toggle && !moving && Hit.transform.name.Contains("Plane")) { // Change true to the correct signal from controller
                     // Turn off collider
                     MoveCollider = Hit.collider;
                     Hit.collider.enabled = false;
