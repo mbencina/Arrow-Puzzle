@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class ArrowShooter : MonoBehaviour
 {
+
+    public GameObject LeftController;
+    public GameObject RightController;
+     
     // Reference to the crosshair object:
     public Transform Crosshair;
 
@@ -32,12 +36,34 @@ public class ArrowShooter : MonoBehaviour
 
     void Update()
     {
+        // A direction between the right controller and the crosshair:
+        Vector3 dir = (Crosshair.localPosition-RightController.transform.position).normalized;
+        // Angular difference between the arrow and the shooting direction:
+        Quaternion q = Quaternion.FromToRotation(gameObject.transform.forward, dir);
+        Debug.Log(q);
+        Debug.Log("Rotation");
+
+        // Get the x, y and angle differences:
+        float xRot = gameObject.transform.rotation.eulerAngles.x + q.eulerAngles.x;
+        float yRot = gameObject.transform.rotation.eulerAngles.y + q.eulerAngles.y + 90;
+        float zRot = gameObject.transform.rotation.eulerAngles.z + q.eulerAngles.z;
+
+        // Rotate the angle of arrow towards the crosshair:
+        gameObject.transform.rotation = Quaternion.Euler(xRot,yRot,zRot);
+
         // flying arrows
         if (arrowFlying) {
             bool resetArrow = false;
-            gameObject.transform.Translate(Crosshair.position * 5.0f * Time.deltaTime);
+            
+            // Move arrow forward:
+            gameObject.transform.Translate(-gameObject.transform.forward * 5f * Time.deltaTime);
             float dist = Vector3.Distance(initialPosition, gameObject.transform.position);
-            // Debug.Log(dist);
+            
+            Debug.Log("Shooting");
+            Debug.Log(dir);
+            Debug.Log(Crosshair.position);
+            Debug.Log(RightController.transform.position);
+            Debug.Log(dist);
             if (dist > maxDist) {
                 resetArrow = true;
             }

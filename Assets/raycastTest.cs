@@ -11,6 +11,7 @@ public class raycastTest : MonoBehaviour
         
     // }
 
+    // Reference to controller:
     public GameObject Controller;
 
     // Maximum raycast distance:
@@ -26,13 +27,14 @@ public class raycastTest : MonoBehaviour
 
     // The object that is moved:
     private Transform MoveObject;
-    // The objects collider:
+
+    // The object's collider:
     private Collider MoveCollider;
 
     // State of the object that is moved - moving or not:
     private bool moving = false;
-    // Function that moves the transform to given position.
 
+    // State of the control button.
     private bool toggle = false;
 
     private void Awake() {
@@ -43,6 +45,7 @@ public class raycastTest : MonoBehaviour
         testReference.action.started -= DoAction;
     }
 
+    // Make dragging on and off:
     private void DoAction(InputAction.CallbackContext ctx)
     {
         if (!toggle) {

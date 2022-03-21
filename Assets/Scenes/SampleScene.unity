@@ -3261,7 +3261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: cff4c024d20095a458a66e6e0d47bf1b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cff4c024d20095a458a66e6e0d47bf1b, type: 3}
       propertyPath: m_RootOrder
@@ -5272,6 +5272,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cff4c024d20095a458a66e6e0d47bf1b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.27317742
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: cff4c024d20095a458a66e6e0d47bf1b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.27317742
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: cff4c024d20095a458a66e6e0d47bf1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5305,11 +5313,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cff4c024d20095a458a66e6e0d47bf1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cff4c024d20095a458a66e6e0d47bf1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cff4c024d20095a458a66e6e0d47bf1b, type: 3}
@@ -5335,6 +5343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ee2172eaa116748aa07d264f86e70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftController: {fileID: 2084861102}
+  RightController: {fileID: 671050545}
   Crosshair: {fileID: 1990469361}
   testReference: {fileID: 7863665606143736270, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   maxDist: 8
