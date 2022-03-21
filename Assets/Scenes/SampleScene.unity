@@ -5888,10 +5888,10 @@ MonoBehaviour:
   pieces: []
   canvas: {fileID: 1542124698}
   vector: {x: 0, y: 0, z: 0}
-  max: 20
-  min: -20
-  bubbleMax: 2
-  bubbleMin: -2
+  max: 6
+  min: -6
+  bubbleMax: 1
+  bubbleMin: -1
   flag: 0
 --- !u!1 &1926444571 stripped
 GameObject:
