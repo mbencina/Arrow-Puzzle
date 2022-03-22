@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class puzzlePlacement1 : MonoBehaviour
+public class PuzzlePlacement : MonoBehaviour
 {
     GameObject puzzle;
     public GameObject pos;
