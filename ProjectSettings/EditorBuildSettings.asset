@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: dbb91aa557f560640a02d84f1140edf8
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: 014899d4fd9f3ae46ac6eca68b22cb07
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 1ef29511ddc23f44baa03f93fa243239, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b91cf04358225fd4f9b7954a6eb6e8e1, type: 2}
