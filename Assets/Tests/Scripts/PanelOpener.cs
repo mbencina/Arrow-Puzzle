@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Menus { 
+
 public class PanelOpener : MonoBehaviour
 {
+    /// <summary>
+    /// Panel for displaying congratulation messages
+    /// </summary>
     public GameObject Panel;
 
     private void Start()
@@ -22,7 +27,10 @@ public class PanelOpener : MonoBehaviour
             OpenPanel();
         }
     }
-
+    
+    /// <summary>
+    /// Opens the panel where the congratulation message is displayed
+    /// </summary>
     public void OpenPanel()
     {
         if (Panel != null)
@@ -33,4 +41,5 @@ public class PanelOpener : MonoBehaviour
         }
 
     }
+}
 }

@@ -2,24 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace PuzzlePieces { 
+
 public class PieceRandomization : MonoBehaviour
 {
     // Variables
     public List<GameObject> pieces = new List<GameObject>();
-    public GameObject canvas;
 
-    //public GameObject parent;
     public Vector3 vector = new Vector3 (0,0,0);
-
+    
+    /// <summary>
+    /// Variables that define the area where the puzzle pieces can be set
+    /// </summary>
     public float max = 6.0f;
     public float min = -6.0f;
 
     public float bubbleMax = 1.0f;
     public float bubbleMin = -1.0f;
 
-    public bool flag = false;
-
-    // Start is called before the first frame update
+    /// <summary>
+    /// Starts the puzzle piece scattering
+    /// </summary>
     void Start()
     {
         CreateList();
@@ -95,4 +98,5 @@ public class PieceRandomization : MonoBehaviour
         Debug.Log("FALSE");
         return false;
     }
+}
 }
