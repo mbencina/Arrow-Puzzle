@@ -33,11 +33,11 @@ public class NewShooting : MonoBehaviour
         
         if (!arrowFlying) {
             
-            direction = -Gun.transform.right; // -Gun.transform.right
+            direction = Gun.transform.forward; // -Gun.transform.right
 
             // Debug.Log(-Gun.transform.right);
 
-            if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit, maxDist)) // Gun.transform.position, -Gun.transform.right, out Hit, maxDist
+            if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit, maxDist)) // Gun.transform.position, -Gun.transform.right, out Hit, maxDist
             {
                 puzzleHit = true;
                 testObj.SetActive(testActive);
