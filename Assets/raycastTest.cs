@@ -37,6 +37,10 @@ public class raycastTest : MonoBehaviour
     // State of the control button.
     private bool toggle = false;
 
+    // miha vars
+    public bool arrowHit = false;
+    public RaycastHit pieceHit;
+
     private void Awake() {
         testReference.action.started += DoAction;
     }
@@ -72,6 +76,11 @@ public class raycastTest : MonoBehaviour
     // Update is called once per frame
     void Update() {
         RaycastHit Hit;
+        if (arrowHit) {
+            Debug.Log("HITTT!!!");
+            Debug.Log(pieceHit.transform.position);
+            arrowHit = false;
+        }
 
         if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit, maximumDistance))
         {
