@@ -41,6 +41,7 @@ public class NewShooting : MonoBehaviour
             // Debug.Log(-Gun.transform.right);
             fakeArrow.SetActive(false);
             arrow.SetActive(true);
+            // TODO adjust real arrow location to fake arrows location - test!
 
             if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit, maxDist)) // Gun.transform.position, -Gun.transform.right, out Hit, maxDist
             {
@@ -62,7 +63,6 @@ public class NewShooting : MonoBehaviour
             
 
             if (puzzleHit) {
-                // TODO distanci pa če puzzle hit
                 float distObj = Vector3.Distance(initialPosition, Hit.transform.position);
                 if (distArr > distObj) {
                     // object hit with arrow
@@ -86,8 +86,5 @@ public class NewShooting : MonoBehaviour
                 arrowFlying = false;
             }
         }
-        // Debug.Log("something"); //this works
     }
-    // TODO when we will hit a piece we will respawn arrow but we will disable it;
-    // when piece is placed we enable the arrow again
 }
