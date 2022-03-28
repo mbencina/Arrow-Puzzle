@@ -19,18 +19,19 @@ namespace Menus {
         /// </summary>
         public new AudioSource audio;
 
-        private void Start()
+        /*private void Start()
         {
-            StartCoroutine(ShowMessage());
-        }
+           StartCoroutine(ShowMessage());
+        }*/
 
-        /*private void Update()
+        private void Update()
         {
             if (open)
             {
                 OpenPanel();
+                open = false;
             }
-        }*/
+        }
 
         public IEnumerator ShowMessage()
         {
@@ -65,15 +66,13 @@ namespace Menus {
         /// </summary>
         public void OpenPanel()
         {
-            if (Panel != null)
+            if (Panel != null && open == true)
             {
                 bool isActive = Panel.activeSelf;
                 Debug.Log("Panel " + isActive);
                 Panel.SetActive(!isActive);
-                if (open == true)
-                {
-                    audio.Play(0);
-                }
+                
+                //audio.Play(0);
                
             }
 
