@@ -11,7 +11,7 @@ public class NewShooting : MonoBehaviour
     public int maxDist = 8;
     public GameObject testObj;
 
-    private Vector3 direction = new Vector3(-1, 0, 0);
+    private Vector3 direction = new Vector3(0, 0, 1);
     private Vector3 initialPosition = new Vector3(0, 0, 0);
     private bool arrowFlying = false;
     private bool puzzleHit = false;
@@ -34,14 +34,14 @@ public class NewShooting : MonoBehaviour
         if (!arrowFlying) {
             
             direction = Gun.transform.forward; // -Gun.transform.right
-
+            Debug.Log("direction: " + Gun.transform.forward);
             // Debug.Log(-Gun.transform.right);
 
             if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit, maxDist)) // Gun.transform.position, -Gun.transform.right, out Hit, maxDist
             {
                 puzzleHit = true;
-                testObj.SetActive(testActive);
-                testActive = !testActive;
+                /* testObj.SetActive(testActive);
+                testActive = !testActive; */
             }
         }
         
