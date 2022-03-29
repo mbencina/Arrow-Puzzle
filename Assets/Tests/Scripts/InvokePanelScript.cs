@@ -13,6 +13,7 @@ public class InvokePanelScript : MonoBehaviour
         open =  Panel.GetComponent<Menus.PanelOpener>();
         bool isOpen = open.open;
         open.open = !isOpen;
+        
     }
     
 }

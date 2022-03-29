@@ -18,18 +18,23 @@ namespace Menus {
         /// The audio that plays when the puzzle is completed
         /// </summary>
         public new AudioSource audio;
+        public bool close = false;
 
         /*private void Start()
         {
            StartCoroutine(ShowMessage());
         }*/
 
+        /// <summary>
+        /// Checks on every frame if the panel needs to be opened
+        /// </summary>
         private void Update()
         {
             if (open)
             {
                 OpenPanel();
                 open = false;
+                StartCoroutine(ClosePanel());
             }
         }
 
@@ -66,16 +71,24 @@ namespace Menus {
         /// </summary>
         public void OpenPanel()
         {
-            if (Panel != null && open == true)
+            if (Panel != null)
+            //if (Panel != null && open == true)
             {
                 bool isActive = Panel.activeSelf;
                 Debug.Log("Panel " + isActive);
                 Panel.SetActive(!isActive);
                 
-                //audio.Play(0);
-               
+                audio.Play(0);
+
+                close = !close;
             }
 
+        }
+
+        public IEnumerator ClosePanel()
+        {
+            yield return new WaitForSeconds(3.0f);
+            OpenPanel();
         }
     }
 }
