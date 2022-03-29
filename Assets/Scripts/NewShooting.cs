@@ -8,8 +8,8 @@ public class NewShooting : MonoBehaviour
     public InputActionReference inputAction = null;
     // Reference to the gun i.e. bow:
     public Transform Gun;
+    public Transform RightHand;
     public int maxDist = 8;
-    public GameObject testObj;
     public GameObject arrow;
     public GameObject fakeArrow;
     public raycastTest outScript;
@@ -39,6 +39,7 @@ public class NewShooting : MonoBehaviour
             arrow.transform.rotation = Quaternion.LookRotation(direction);
             // Debug.Log("direction: " + Gun.transform.forward);
             // Debug.Log(-Gun.transform.right);
+            arrow.transform.position = RightHand.transform.position;
             fakeArrow.SetActive(false);
             arrow.SetActive(true);
             // TODO adjust real arrow location to fake arrows location - test!
@@ -58,12 +59,12 @@ public class NewShooting : MonoBehaviour
         // flying arrows
         if (arrowFlying) {
             gameObject.transform.Translate(direction * 5.0f * Time.deltaTime);
-            float distArr = Vector3.Distance(initialPosition, gameObject.transform.position);
+            float distArr = Vector3.Distance(RightHand.transform.position, gameObject.transform.position);
             // Debug.Log(dist);
             
 
             if (puzzleHit) {
-                float distObj = Vector3.Distance(initialPosition, Hit.transform.position);
+                float distObj = Vector3.Distance(RightHand.transform.position, Hit.transform.position);
                 if (distArr > distObj) {
                     // object hit with arrow
                     // Debug.Log("object hit!");
