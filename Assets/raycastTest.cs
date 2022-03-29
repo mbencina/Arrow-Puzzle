@@ -37,6 +37,10 @@ public class raycastTest : MonoBehaviour
     // State of the control button.
     private bool toggle = false;
 
+    // miha vars
+    public bool arrowHit = false;
+    public RaycastHit pieceHit;
+
     private void Awake() {
         testReference.action.started += DoAction;
     }
@@ -72,6 +76,11 @@ public class raycastTest : MonoBehaviour
     // Update is called once per frame
     void Update() {
         RaycastHit Hit;
+        if (arrowHit) {
+            Debug.Log("HITTT!!!");
+            Debug.Log(pieceHit.transform.position);
+            arrowHit = false;
+        }
 
         if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit, maximumDistance))
         {
@@ -79,9 +88,9 @@ public class raycastTest : MonoBehaviour
                 Crosshair.transform.position = Hit.point;
 
                 // Debug: Position - Name - Draw ray:
-                Debug.Log(Hit.transform.position);
-                Debug.Log(Hit.transform.name);
-                Debug.DrawRay(Gun.transform.position, -Gun.transform.right, Color.green);
+                //Debug.Log(Hit.transform.position);
+                //Debug.Log(Hit.transform.name);
+                //Debug.DrawRay(Gun.transform.position, -Gun.transform.right, Color.green);
                 // If the controller is toggled, the moving not enabled and hit is a puzzle piece:
                 
                 if (toggle && !moving && Hit.transform.name.Contains("Plane")) { // Change true to the correct signal from controller
@@ -93,15 +102,15 @@ public class raycastTest : MonoBehaviour
                     // Picke the obejct to move
                     MoveObject = Hit.transform;
 
-                    Debug.Log("moving: "+ moving.ToString());
-                    Debug.Log(MoveObject.name);
+                    //Debug.Log("moving: "+ moving.ToString());
+                    //Debug.Log(MoveObject.name);
                     
                 } 
                 // If the controller is toggled, the piece picked for moving, 
                 // the object is moved along the raycast:
                 if (toggle && moving) {
                     move(MoveObject, Hit.point, Controller);
-                    Debug.Log("move on");
+                    //Debug.Log("move on");
                 }
 
                 // If controller is not toggled, the collider is set on again 
@@ -122,7 +131,7 @@ public class raycastTest : MonoBehaviour
                 // the object is moved along the raycast:
                 if (toggle && moving) {
                     move(MoveObject, Crosshair.transform.position, Controller);
-                    Debug.Log("move on");
+                    //Debug.Log("move on");
                 }
 
                 // If controller is not toggled, the collider is set on again 
