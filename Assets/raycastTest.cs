@@ -113,7 +113,7 @@ public class raycastTest : MonoBehaviour
 
                 // If the controller is toggled, the piece picked for moving, 
                 // the object is moved along the raycast:
-                move(MoveObject, Hit.point, Controller);
+                move(MoveObject, Crosshair.transform.position, Controller);
             }
         // If raycast has nothing to hit, simply move the crosshair and if the piece is moving, the piece:
         } else {

@@ -51,6 +51,7 @@ public class NewShooting : MonoBehaviour
                 outScript.pieceHit = Hit;
             }
             arrowFlying = true;
+            shootAnother = false;
         }
     }
 
@@ -61,7 +62,6 @@ public class NewShooting : MonoBehaviour
             gameObject.transform.Translate(direction * 5.0f * Time.deltaTime);
             float distArr = Vector3.Distance(RightHand.transform.position, gameObject.transform.position);
             // Debug.Log(dist);
-            
 
             if (puzzleHit) {
                 float distObj = Vector3.Distance(RightHand.transform.position, Hit.transform.position);
@@ -86,6 +86,7 @@ public class NewShooting : MonoBehaviour
                 arrow.SetActive(false);
                 fakeArrow.SetActive(true);
                 arrowFlying = false;
+                shootAnother = true;
             }
         }
 
