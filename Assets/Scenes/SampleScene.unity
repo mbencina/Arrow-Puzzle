@@ -2593,6 +2593,8 @@ MonoBehaviour:
   Gun: {fileID: 834768170}
   testReference: {fileID: 2376951922921116496, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   arrowHit: 0
+  shootingScript: {fileID: 1457121529}
+  crosshairDistance: 3
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5575,6 +5577,7 @@ MonoBehaviour:
   arrow: {fileID: 74399722}
   fakeArrow: {fileID: 1190104424}
   outScript: {fileID: 696230799}
+  shootAnother: 1
 --- !u!4 &1457121530
 Transform:
   m_ObjectHideFlags: 0

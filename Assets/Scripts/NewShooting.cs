@@ -13,6 +13,7 @@ public class NewShooting : MonoBehaviour
     public GameObject arrow;
     public GameObject fakeArrow;
     public raycastTest outScript;
+    public bool shootAnother = true; // sent by other script TODO uporabi; pa še nek toggle k lah izklop bow & arrow more bit
 
     private Vector3 direction = new Vector3(0, 0, 1);
     private Vector3 initialPosition = new Vector3(0, 0, 0);
@@ -33,7 +34,7 @@ public class NewShooting : MonoBehaviour
     private void DoAction(InputAction.CallbackContext ctx)
     {
         
-        if (!arrowFlying) {
+        if (!arrowFlying && shootAnother) {
             
             direction = Gun.transform.forward; // -Gun.transform.right
             arrow.transform.rotation = Quaternion.LookRotation(direction);
@@ -44,14 +45,13 @@ public class NewShooting : MonoBehaviour
             arrow.SetActive(true);
             // TODO adjust real arrow location to fake arrows location - test!
 
-            if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit, maxDist)) // Gun.transform.position, -Gun.transform.right, out Hit, maxDist
+            if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit, maxDist) && Hit.transform.name.Contains("Plane"))
             {
                 puzzleHit = true;
                 outScript.pieceHit = Hit;
             }
+            arrowFlying = true;
         }
-        
-        arrowFlying = true;
     }
 
     void Update()
@@ -70,7 +70,8 @@ public class NewShooting : MonoBehaviour
                     // Debug.Log("object hit!");
                     gameObject.transform.position = new Vector3(0, 0, 0); // this should be controller position
                     arrow.SetActive(false);
-                    fakeArrow.SetActive(true); // TODO remove while moving puzzle piece; enable when piece is placed; add public var to know when it stops;
+                    shootAnother = false;
+                    // fakeArrow.SetActive(true); // TODO remove while moving puzzle piece; enable when piece is placed; add public var to know when it stops;
                     arrowFlying = false;
                     puzzleHit = false;
 
@@ -86,6 +87,10 @@ public class NewShooting : MonoBehaviour
                 fakeArrow.SetActive(true);
                 arrowFlying = false;
             }
+        }
+
+        if (shootAnother) {
+            fakeArrow.SetActive(true);
         }
     }
 }
