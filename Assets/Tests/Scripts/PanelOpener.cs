@@ -20,10 +20,6 @@ namespace Menus {
         public new AudioSource audio;
         public bool close = false;
 
-        /*private void Start()
-        {
-           StartCoroutine(ShowMessage());
-        }*/
 
         /// <summary>
         /// Checks on every frame if the panel needs to be opened
@@ -37,16 +33,17 @@ namespace Menus {
                 StartCoroutine(ClosePanel());
             }
         }
-
+        
+        /*
         public IEnumerator ShowMessage()
         {
             for (int i = 0; i < 10; i++)
             {
-                /* yield return new WaitForSecondsRealtime(3);
+                yield return new WaitForSecondsRealtime(3);
                  OpenPanel();
 
                  yield return new WaitForSecondsRealtime(2);
-                 OpenPanel();*/
+                 OpenPanel();
 
                 yield return new WaitForSecondsRealtime(2);
 
@@ -64,7 +61,7 @@ namespace Menus {
                     OpenPanel();
                 }
             }
-        }
+        }*/
 
         /// <summary>
         /// Opens the panel where the congratulation message is displayed
@@ -85,6 +82,10 @@ namespace Menus {
 
         }
 
+        /// <summary>
+        /// Triggers OpenPanel-method after a short wait.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator ClosePanel()
         {
             yield return new WaitForSeconds(3.0f);

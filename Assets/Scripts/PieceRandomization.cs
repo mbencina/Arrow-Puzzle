@@ -7,9 +7,9 @@ namespace PuzzlePieces {
 public class PieceRandomization : MonoBehaviour
 {
     // Variables
-    public List<GameObject> pieces = new List<GameObject>();
+    private List<GameObject> pieces = new List<GameObject>();
 
-    public Vector3 vector = new Vector3 (0,0,0);
+    private Vector3 vector = new Vector3 (0,0,0);
     
     /// <summary>
     /// Variables that define the area where the puzzle pieces can be set
