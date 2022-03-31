@@ -107,6 +107,7 @@ public class raycastTest : MonoBehaviour
                 moving = true;
                 // Picke the obejct to move
                 MoveObject = pieceHit.transform;
+                toggle = true;
 
                 //Debug.Log("moving: "+ moving.ToString());
                 //Debug.Log(MoveObject.name);
