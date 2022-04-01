@@ -40,7 +40,7 @@ public class NewShooting : MonoBehaviour
             arrow.transform.rotation = Quaternion.LookRotation(direction);
             // Debug.Log("direction: " + Gun.transform.forward);
             // Debug.Log(-Gun.transform.right);
-            arrow.transform.position = RightHand.transform.position;
+            gameObject.transform.position = RightHand.transform.position;
             fakeArrow.SetActive(false);
             arrow.SetActive(true);
             // TODO adjust real arrow location to fake arrows location - test!
