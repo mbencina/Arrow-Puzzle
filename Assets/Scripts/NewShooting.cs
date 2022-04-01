@@ -45,7 +45,7 @@ public class NewShooting : MonoBehaviour
             arrow.SetActive(true);
             // TODO adjust real arrow location to fake arrows location - test!
 
-            if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit, 50)) //  && Hit.transform.name.Contains("Plane")
+            if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit, 50) && Hit.transform.name.Contains("Plane")) //  && Hit.transform.name.Contains("Plane")
             {
                 puzzleHit = true;
                 outScript.pieceHit = Hit;
