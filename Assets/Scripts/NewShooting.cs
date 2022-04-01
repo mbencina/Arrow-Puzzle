@@ -45,7 +45,7 @@ public class NewShooting : MonoBehaviour
             arrow.SetActive(true);
             // TODO adjust real arrow location to fake arrows location - test!
 
-            if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit, maxDist)) //  && Hit.transform.name.Contains("Plane")
+            if (Physics.Raycast(Gun.transform.position, Gun.transform.forward, out Hit, 50)) //  && Hit.transform.name.Contains("Plane")
             {
                 puzzleHit = true;
                 outScript.pieceHit = Hit;
@@ -59,7 +59,7 @@ public class NewShooting : MonoBehaviour
     {
         // flying arrows
         if (arrowFlying) {
-            gameObject.transform.Translate(direction * 5.0f * Time.deltaTime);
+            gameObject.transform.Translate(direction * 7.0f * Time.deltaTime);
             float distArr = Vector3.Distance(RightHand.transform.position, gameObject.transform.position);
             // Debug.Log(dist);
 
