@@ -35,11 +35,19 @@ public class raycastTest : MonoBehaviour
     private bool moving = false;
 
     // State of the control button.
-    private bool toggle = false;
+    private bool toggle = true;
 
-    // miha vars
+    // We know when arrow has hit a puzzle piece
     public bool arrowHit = false;
+
+    // The puzzle piece that was hit
     public RaycastHit pieceHit;
+
+    // Reference to the shooting script
+    public NewShooting shootingScript;
+
+    // distance of crosshair
+    public float crosshairDistance = 3.0f;
 
     private void Awake() {
         testReference.action.started += DoAction;
@@ -76,74 +84,57 @@ public class raycastTest : MonoBehaviour
     // Update is called once per frame
     void Update() {
         RaycastHit Hit;
-        if (arrowHit) {
-            Debug.Log("HITTT!!!");
-            Debug.Log(pieceHit.transform.position);
-            arrowHit = false;
+
+        if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit, maximumDistance)) {
+            // Move the crosshair:
+            Crosshair.transform.position = Hit.point;
+        } else {
+            // Move the crosshair to a point that is 5 unit in fron tof the bow:
+            Crosshair.transform.position = Controller.transform.position + Controller.transform.forward * crosshairDistance;
         }
 
-        if (Physics.Raycast(Gun.transform.position, -Gun.transform.right, out Hit, maximumDistance))
-        {
-                // Move the crosshair:
-                Crosshair.transform.position = Hit.point;
+            // Debug: Position - Name - Draw ray:
+            //Debug.Log(Hit.transform.position);
+            //Debug.Log(Hit.transform.name);
+            //Debug.DrawRay(Gun.transform.position, -Gun.transform.right, Color.green);
+            // If the controller is toggled, the moving not enabled and hit is a puzzle piece:
+        if (!moving) {
+            if (arrowHit) { // Change true to the correct signal from controller
+                // Turn off collider
+                MoveCollider = pieceHit.collider;
+                pieceHit.collider.enabled = false;
+                // Set state to moving
+                moving = true;
+                // Picke the obejct to move
+                MoveObject = pieceHit.transform;
+                toggle = true;
 
-                // Debug: Position - Name - Draw ray:
-                //Debug.Log(Hit.transform.position);
-                //Debug.Log(Hit.transform.name);
-                //Debug.DrawRay(Gun.transform.position, -Gun.transform.right, Color.green);
-                // If the controller is toggled, the moving not enabled and hit is a puzzle piece:
-                
-                if (toggle && !moving && Hit.transform.name.Contains("Plane")) { // Change true to the correct signal from controller
-                    // Turn off collider
-                    MoveCollider = Hit.collider;
-                    Hit.collider.enabled = false;
-                    // Set state to moving
-                    moving = true;
-                    // Picke the obejct to move
-                    MoveObject = Hit.transform;
+                //Debug.Log("moving: "+ moving.ToString());
+                //Debug.Log(MoveObject.name);
 
-                    //Debug.Log("moving: "+ moving.ToString());
-                    //Debug.Log(MoveObject.name);
-                    
-                } 
                 // If the controller is toggled, the piece picked for moving, 
                 // the object is moved along the raycast:
-                if (toggle && moving) {
-                    move(MoveObject, Hit.point, Controller);
-                    //Debug.Log("move on");
-                }
-
-                // If controller is not toggled, the collider is set on again 
-                // and the state set to not moving. Finally, the object to move
-                // is set to null:
-                if (!toggle && moving) { // Change false to input signal showing the controller is not toggled.
-                    MoveCollider.enabled = true;
-                    MoveCollider = null;
-                    MoveObject = null;
-                    moving = false;
-                }
+                move(MoveObject, Crosshair.transform.position, Controller);
+            }
         // If raycast has nothing to hit, simply move the crosshair and if the piece is moving, the piece:
         } else {
-                // Move the crosshair to a point that is 5 unit in fron tof the bow:
-                Crosshair.transform.position = Controller.transform.position + Controller.transform.forward*5;
+            // If the controller is toggled, the piece picked for moving, 
+            // the object is moved along the raycast:
+            move(MoveObject, Crosshair.transform.position, Controller);
 
-                // If the controller is toggled, the piece picked for moving, 
-                // the object is moved along the raycast:
-                if (toggle && moving) {
-                    move(MoveObject, Crosshair.transform.position, Controller);
-                    //Debug.Log("move on");
-                }
+            // If controller is not toggled, the collider is set on again 
+            // and the state set to not moving. Finally, the object to move
+            // is set to null:
+            if (!toggle) { // Change false to input signal showing the controller is not toggled.
+                MoveCollider.enabled = true;
+                MoveCollider = null;
+                MoveObject = null;
+                moving = false;
+                toggle = true;
 
-                // If controller is not toggled, the collider is set on again 
-                // and the state set to not moving. Finally, the object to move
-                // is set to null:
-                if (!toggle && moving) { // Change false to input signal showing the controller is not toggled.
-                    MoveCollider.enabled = true;
-                    MoveCollider = null;
-                    MoveObject = null;
-                    moving = false;
-                }
-        
+                arrowHit = false;
+                shootingScript.shootAnother = true;
+            }
         } 
     }
 }
