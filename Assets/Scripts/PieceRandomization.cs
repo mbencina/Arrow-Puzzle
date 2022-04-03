@@ -12,13 +12,9 @@ public class PieceRandomization : MonoBehaviour
     private Vector3 vector = new Vector3 (0,0,0);
     
     /// <summary>
-    /// Variables that define the area where the puzzle pieces can be set
+    /// AN array of variables that define the area where the puzzle pieces can be set
     /// </summary>
-    public float max = 6.0f;
-    public float min = -6.0f;
-
-    public float bubbleMax = 1.0f;
-    public float bubbleMin = -1.0f;
+    public float[] limitValues = { 6.0f, -6.0f, 1.0f, -1.0f };
 
     /// <summary>
     /// Starts the puzzle piece scattering
@@ -68,10 +64,10 @@ public class PieceRandomization : MonoBehaviour
     /// </summary>
     public void GenerateVector ()
     {
-        Vector3 place = new Vector3(Random.Range(min, max), Random.Range(0, max), Random.Range(min, max));
-        if (place.x >= bubbleMin && place.x <= bubbleMax &&
-            place.y >= bubbleMin && place.y <= bubbleMax &&
-            place.z >= bubbleMin && place.z <= bubbleMax || // Checking if the piece is too close to the player
+        Vector3 place = new Vector3(Random.Range(limitValues[1], limitValues[0]), Random.Range(0, limitValues[0]), Random.Range(limitValues[1], limitValues[0]));
+        if (place.x >= limitValues[3] && place.x <= limitValues[2] &&
+            place.y >= limitValues[3] && place.y <= limitValues[2] &&
+            place.z >= limitValues[3] && place.z <= limitValues[2] || // Checking if the piece is too close to the player
             IsOnTable(place) == true)  // Checking if the piece is on of behind the canvas
         {
             GenerateVector();

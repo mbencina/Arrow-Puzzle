@@ -74,8 +74,11 @@ namespace Menus {
                 bool isActive = Panel.activeSelf;
                 Debug.Log("Panel " + isActive);
                 Panel.SetActive(!isActive);
-                
-                audio.Play(0);
+
+                if (!open)
+                {
+                    audio.Play(0);
+                }
 
                 close = !close;
             }
