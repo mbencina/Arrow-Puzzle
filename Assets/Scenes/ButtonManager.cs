@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonManager : MonoBehaviour
+namespace Menus
 {
-    public void ButtonMoveScene(string level)
+    /// <summary>
+    /// Manages moving between scenes by pressing a button
+    /// </summary>
+    public class ButtonManager : MonoBehaviour
     {
-        SceneManager.LoadScene(level);
+        /// <summary>
+        /// Executes the move between two scenes
+        /// </summary>
+        /// <param name="level">The name of the destination scene</param>
+        public void ButtonMoveScene(string level)
+        {
+            SceneManager.LoadScene(level);
+        }
     }
 }

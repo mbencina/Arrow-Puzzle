@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Menus { 
 
+    /// <summary>
+    /// Defines how and when the panel with the congratulations-message is opened
+    /// </summary>
     public class PanelOpener : MonoBehaviour
     {
         /// <summary>
@@ -18,7 +21,6 @@ namespace Menus {
         /// The audio that plays when the puzzle is completed
         /// </summary>
         public new AudioSource audio;
-        public bool close = false;
 
 
         /// <summary>
@@ -33,35 +35,6 @@ namespace Menus {
                 StartCoroutine(ClosePanel());
             }
         }
-        
-        /*
-        public IEnumerator ShowMessage()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                yield return new WaitForSecondsRealtime(3);
-                 OpenPanel();
-
-                 yield return new WaitForSecondsRealtime(2);
-                 OpenPanel();
-
-                yield return new WaitForSecondsRealtime(2);
-
-                if (i == 2 || i == 4 || i == 6 || i == 8)
-                {
-                    open = true;
-                }
-                else
-                {
-                    open = false;
-                }
-
-                if (open)
-                {
-                    OpenPanel();
-                }
-            }
-        }*/
 
         /// <summary>
         /// Opens the panel where the congratulation message is displayed
@@ -75,12 +48,10 @@ namespace Menus {
                 Debug.Log("Panel " + isActive);
                 Panel.SetActive(!isActive);
 
-                if (!open)
+                if (open)
                 {
                     audio.Play(0);
                 }
-
-                close = !close;
             }
 
         }
