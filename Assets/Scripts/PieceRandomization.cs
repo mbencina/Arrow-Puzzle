@@ -19,6 +19,9 @@ namespace PuzzlePieces {
         /// </summary>
         public float[] limitValues = { 6.0f, -6.0f, 1.0f, -1.0f };
 
+        public Transform player;
+
+
         /// <summary>
         /// Starts the puzzle piece scattering
         /// </summary>
@@ -55,11 +58,10 @@ namespace PuzzlePieces {
                 //piece.transform.SetParent(null);
                 Debug.Log("NEW");
                 GenerateVector();
-                RotatePiece(piece);
             
                 piece.transform.position = vector;
-                Debug.Log("Vector " + vector);
-                Debug.Log("Position " + transform.TransformPoint(vector));
+
+                RotatePiece(piece);
             }
         }
 
@@ -88,44 +90,77 @@ namespace PuzzlePieces {
         /// <param name="place">The current place of the puzzle piece</param>
         /// <returns>Truth value on if the piece is on or behind the table or not</returns>
         public bool IsOnTable (Vector3 place)
-        {
-            Debug.Log("ABS " + System.Math.Abs(place.z) + " " + System.Math.Abs(place.x));
+        {;
             if (place.z <= 0 && System.Math.Abs(place.z) >= System.Math.Abs(place.x) ||
                 System.Math.Abs(place.y) >= System.Math.Abs(place.x) &&
                 System.Math.Abs(place.y) >= System.Math.Abs(place.z))
             {
-                Debug.Log("TRUE");
                 return true;
             }
-            Debug.Log("FALSE");
             return false;
         }
 
         public void RotatePiece(GameObject piece)
         {
-            if (vector.x > 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z) * 2)
+            Debug.Log("PIECE: " + piece);
+            Debug.Log(vector);
+            /*Vector3 direction = player.position - piece.transform.position;
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            piece.transform.rotation = rotation;
+            */
+            if (vector.z >= 0)
             {
-                float xRot = piece.transform.localRotation.eulerAngles.x;
-                float zRot = piece.transform.localRotation.eulerAngles.z;
-                piece.transform.rotation = Quaternion.Euler(xRot, 90, zRot);
+                if (vector.x > 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, 90, zRot);
+                }
+                else if (vector.x > 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, 45, zRot);
+                }
+                else if (vector.x < 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, -90, zRot);
+                }
+                else if (vector.x < 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, -45, zRot);
+                }
             }
-            else if (vector.x > 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
+            else if (vector.z < 0)
             {
-                float xRot = piece.transform.localRotation.eulerAngles.x;
-                float zRot = piece.transform.localRotation.eulerAngles.z;
-                piece.transform.rotation = Quaternion.Euler(xRot, 45, zRot);
-            }
-            else if (vector.x < 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z) * 2)
-            {
-                float xRot = piece.transform.localRotation.eulerAngles.x;
-                float zRot = piece.transform.localRotation.eulerAngles.z;
-                piece.transform.rotation = Quaternion.Euler(xRot, -90, zRot);
-            }
-            else if (vector.x < 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
-            {
-                float xRot = piece.transform.localRotation.eulerAngles.x;
-                float zRot = piece.transform.localRotation.eulerAngles.z;
-                piece.transform.rotation = Quaternion.Euler(xRot, -45, zRot);
+                if (vector.x > 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, 90, zRot);
+                }
+                else if (vector.x > 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, 135, zRot);
+                }
+                else if (vector.x < 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, -90, zRot);
+                }
+                else if (vector.x < 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, -135, zRot);
+                }
             }
         }
     }
