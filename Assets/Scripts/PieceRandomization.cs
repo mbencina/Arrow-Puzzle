@@ -1,100 +1,169 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PieceRandomization : MonoBehaviour
+namespace PuzzlePieces
 {
-    // Variables
-    public List<GameObject> pieces = new List<GameObject>();
-    public GameObject canvas;
-
-    public Vector3 vector = new Vector3(0, 0, 0);
-
-    public int max = 6;
-    public int min = -6;
-
-    public int bubbleMax = 1;
-    public int bubbleMin = -1;
-
-    public bool flag = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        CreateList();
-        RandomizePosition();
-    }
 
     /// <summary>
-    /// Creating a list of the puzzle pieces
+    /// Defines the scattering of the puzzle pieces at the beginning of the game.
     /// </summary>
-    /// 
-    public void CreateList()
+    public class PieceRandomization : MonoBehaviour
     {
-        foreach (Transform child in transform)
+        // Variables
+        private List<GameObject> pieces = new List<GameObject>();
+
+        private Vector3 vector = new Vector3(0, 0, 0);
+
+        /// <summary>
+        /// An array of variables that define the area where the puzzle pieces can be set
+        /// </summary>
+        public float[] limitValues = { 6.0f, -6.0f, 1.0f, -1.0f };
+
+
+        /// <summary>
+        /// Starts the puzzle piece scattering
+        /// </summary>
+        void Start()
         {
-            if (child.gameObject.CompareTag("PuzzlePiece"))
+            CreateList();
+            RandomizePosition();
+
+        }
+
+        /// <summary>
+        /// Creating a list of the puzzle pieces
+        /// </summary>
+        /// 
+        public void CreateList()
+        {
+            foreach (Transform child in transform)
             {
-                pieces.Add(child.gameObject);
+                if (child.gameObject.CompareTag("PuzzlePiece"))
+                {
+                    pieces.Add(child.gameObject);
+                }
+            }
+            int size = pieces.Count;
+        }
+
+        /// <summary>
+        /// Randomize the position of the puzzle pieces
+        /// </summary>
+        public void RandomizePosition()
+        {
+            foreach (GameObject piece in pieces)
+            {
+                //piece.transform.SetParent(null);
+                Debug.Log("NEW");
+                GenerateVector();
+
+                piece.transform.position = vector;
+
+                RotatePiece(piece);
             }
         }
-        int size = pieces.Count;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    /// <summary>
-    /// Randomize the position of the puzzle pieces
-    /// </summary>
-    public void RandomizePosition()
-    {
-        foreach (GameObject piece in pieces)
+        /// <summary>
+        /// Generates random vectors between given max and min values
+        /// </summary>
+        public void GenerateVector()
         {
-            Debug.Log("NEW"); GenerateVector();
+            Vector3 place = new Vector3(Random.Range(limitValues[1], limitValues[0]), Random.Range(0, limitValues[0]), Random.Range(limitValues[1], limitValues[0]));
+            if (place.x >= limitValues[3] && place.x <= limitValues[2] &&
+                place.y >= limitValues[3] && place.y <= limitValues[2] &&
+                place.z >= limitValues[3] && place.z <= limitValues[2] || // Checking if the piece is too close to the player
+                IsOnTable(place) == true)  // Checking if the piece is on of behind the canvas
+            {
+                GenerateVector();
+            }
+            else
+            {
+                vector = place;
+            }
+        }
 
-            piece.transform.position = vector;
-            Debug.Log("Vector " + vector);
+        /// <summary>
+        /// Checks if puzzle piece is on or behind the table
+        /// </summary>
+        /// <param name="place">The current place of the puzzle piece</param>
+        /// <returns>Truth value on if the piece is on or behind the table or not</returns>
+        public bool IsOnTable(Vector3 place)
+        {
+            ;
+            if (place.z <= 0 && System.Math.Abs(place.z) >= System.Math.Abs(place.x) ||
+                System.Math.Abs(place.y) >= System.Math.Abs(place.x) &&
+                System.Math.Abs(place.y) >= System.Math.Abs(place.z))
+            {
+                return true;
+            }
+            return false;
         }
-    }
 
-    /// <summary>
-    /// Generates random vectors between given max and min values
-    /// </summary>
-    public void GenerateVector()
-    {
-        Vector3 place = new Vector3(Random.Range(min, max), Random.Range(0, max), Random.Range(min, max));
-        if (place.x >= bubbleMin && place.x <= bubbleMax &&
-            place.y >= bubbleMin && place.y <= bubbleMax &&
-            place.z >= bubbleMin && place.z <= bubbleMax ||
-            IsOnTable(place) == true)
+        /// <summary>
+        /// Determines the initial rotation of the puzzle pieces at the start of the game
+        /// </summary>
+        /// <param name="piece"></param>
+        public void RotatePiece(GameObject piece)
         {
-            GenerateVector();
+            Debug.Log("PIECE: " + piece);
+            Debug.Log(vector);
+            
+            if (vector.z >= 0)
+            {
+                if (vector.x > 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, 90, zRot);
+                }
+                else if (vector.x > 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, 45, zRot);
+                }
+                else if (vector.x < 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, -90, zRot);
+                }
+                else if (vector.x < 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, -45, zRot);
+                }
+            }
+            else if (vector.z < 0)
+            {
+                if (vector.x > 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, 90, zRot);
+                }
+                else if (vector.x > 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, 135, zRot);
+                }
+                else if (vector.x < 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, -90, zRot);
+                }
+                else if (vector.x < 0 && System.Math.Abs(vector.x) >= System.Math.Abs(vector.z))
+                {
+                    float xRot = piece.transform.localRotation.eulerAngles.x;
+                    float zRot = piece.transform.localRotation.eulerAngles.z;
+                    piece.transform.rotation = Quaternion.Euler(xRot, -135, zRot);
+                }
+            }
         }
-        else
-        {
-            vector = place;
-        }
-;
-    }
-
-    /// <summary>
-    /// Checks if puzzle piece is on or behind the table
-    /// </summary>
-    /// <param name="place">The current place of the puzzle piece</param>
-    /// <returns>Truth value on if the piece is on or behind the table or not</returns>
-    public bool IsOnTable(Vector3 place)
-    {
-        Debug.Log("ABS " + System.Math.Abs(place.z) + " " + System.Math.Abs(place.x));
-        if (place.z <= 0 && System.Math.Abs(place.z) >= System.Math.Abs(place.x))
-        {
-            Debug.Log("TRUE");
-            return true;
-        }
-        Debug.Log("FALSE");
-        return false;
     }
 }
