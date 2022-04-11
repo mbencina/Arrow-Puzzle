@@ -287,6 +287,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 1
   puzzlePositionY: 1
+  Panel: {fileID: 0}
 --- !u!1 &74399722
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +578,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 2
   puzzlePositionY: 0
+  Panel: {fileID: 0}
 --- !u!1 &148890151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4767400413853537203, guid: 1ea7309b02d6ca54c8a934ec924357a1, type: 3}
@@ -741,6 +743,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 3
   puzzlePositionY: 2
+  Panel: {fileID: 0}
 --- !u!1 &218945591
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +972,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 3
   puzzlePositionY: 1
+  Panel: {fileID: 0}
 --- !u!1 &344471315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5619302609615435187, guid: 1ea7309b02d6ca54c8a934ec924357a1, type: 3}
@@ -1133,6 +1137,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 2
   puzzlePositionY: 1
+  Panel: {fileID: 0}
 --- !u!1 &353980805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,6 +3144,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 0
   puzzlePositionY: 1
+  Panel: {fileID: 0}
 --- !u!1 &1156101944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3333,6 +3339,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 0}
 --- !u!1 &1190104424 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 1df37a254924a7444909838c4af7e44f, type: 3}
@@ -3619,6 +3626,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 3
   puzzlePositionY: 0
+  Panel: {fileID: 0}
 --- !u!1 &1338425560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3898,6 +3906,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 1
   puzzlePositionY: 2
+  Panel: {fileID: 0}
 --- !u!1 &1440370056
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,6 +4784,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 0
   puzzlePositionY: 2
+  Panel: {fileID: 0}
 --- !u!1001 &1776275809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5382,6 +5392,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5397,6 +5408,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5412,6 +5424,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5427,6 +5440,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5442,6 +5456,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5457,6 +5472,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5472,6 +5488,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 0}
 --- !u!114 &1776275856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5487,6 +5504,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5502,6 +5520,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5517,6 +5536,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5532,6 +5552,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5547,6 +5568,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5562,6 +5584,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   puzzlePositionX: 0
   puzzlePositionY: 0
+  Panel: {fileID: 634787548}
 --- !u!114 &1776275886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7244,6 +7267,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 1
   puzzlePositionY: 0
+  Panel: {fileID: 0}
 --- !u!1 &2084861102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7916,6 +7940,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 2
   puzzlePositionY: 2
+  Panel: {fileID: 0}
 --- !u!1001 &878895635806002129
 PrefabInstance:
   m_ObjectHideFlags: 0
