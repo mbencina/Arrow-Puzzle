@@ -92,7 +92,7 @@ namespace PuzzlePieces
         public bool IsOnTable(Vector3 place)
         {
             ;
-            if (place.z <= 0 && System.Math.Abs(place.z) >= System.Math.Abs(place.x) ||
+            if (place.z > 0 && place.x < 0 ||
                 System.Math.Abs(place.y) * 1.25 >= System.Math.Abs(place.x) &&
                 System.Math.Abs(place.y) * 1.25 >= System.Math.Abs(place.z))
             {
