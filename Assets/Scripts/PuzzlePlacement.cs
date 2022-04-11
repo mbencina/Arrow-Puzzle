@@ -8,6 +8,7 @@ public class PuzzlePlacement : MonoBehaviour
     public GameObject pos;
     //public GameObject parent;
     float Distance;
+    int count=0;
     Rigidbody rb;
     public int puzzlePositionX;
     public int puzzlePositionY;
@@ -29,13 +30,20 @@ public class PuzzlePlacement : MonoBehaviour
                     new Vector3(pos.transform.position.x + i * 0.01f + 1.35f, 
                     pos.transform.position.y - 0.8f - j * 0.01f, pos.transform.position.z));
                 //Debug.Log(i + "i "+j+" j "+Distance+"dist");
-                if (Distance < 2)
+                if (true)
                 {
                     pos.transform.localScale = puzzle.transform.localScale;
                     rb.isKinematic = true;
                     puzzle.transform.position = pos.transform.position;
                     puzzle.transform.position = new Vector3(puzzle.transform.position.x + i * 0.01f + 1.35f, puzzle.transform.position.y - 0.8f - j * 0.01f, puzzle.transform.position.z);
-
+                    puzzle.transform.eulerAngles = new Vector3(0, -66, 0);
+                    count++;
+                    if (count < 12)
+                    {
+                       
+                    }
+                    
+                    
                 }
             }
         }
