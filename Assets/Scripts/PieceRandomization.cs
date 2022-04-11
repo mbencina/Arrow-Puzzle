@@ -93,8 +93,8 @@ namespace PuzzlePieces
         {
             ;
             if (place.z <= 0 && System.Math.Abs(place.z) >= System.Math.Abs(place.x) ||
-                System.Math.Abs(place.y) >= System.Math.Abs(place.x) &&
-                System.Math.Abs(place.y) >= System.Math.Abs(place.z))
+                System.Math.Abs(place.y) * 1.25 >= System.Math.Abs(place.x) &&
+                System.Math.Abs(place.y) * 1.25 >= System.Math.Abs(place.z))
             {
                 return true;
             }
