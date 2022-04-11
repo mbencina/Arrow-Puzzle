@@ -12,6 +12,9 @@ public class PuzzlePlacement : MonoBehaviour
     Rigidbody rb;
     public int puzzlePositionX;
     public int puzzlePositionY;
+
+    public GameObject Panel;
+    private Menus.PanelOpener panelOpener;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +43,9 @@ public class PuzzlePlacement : MonoBehaviour
                     count++;
                     if (count < 12)
                     {
-                       
+                       panelOpener = Panel.GetComponent<Menus.PanelOpener>();
+                        bool isOpen = panelOpener.open;
+                        panelOpener.open = !isOpen;
                     }
                     
                     
