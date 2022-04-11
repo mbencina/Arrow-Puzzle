@@ -287,7 +287,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 1
   puzzlePositionY: 1
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &74399722
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 2
   puzzlePositionY: 0
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &148890151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4767400413853537203, guid: 1ea7309b02d6ca54c8a934ec924357a1, type: 3}
@@ -743,7 +743,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 3
   puzzlePositionY: 2
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &218945591
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +972,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 3
   puzzlePositionY: 1
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &344471315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5619302609615435187, guid: 1ea7309b02d6ca54c8a934ec924357a1, type: 3}
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 2
   puzzlePositionY: 1
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &353980805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3144,7 +3144,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 0
   puzzlePositionY: 1
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &1156101944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3339,7 +3339,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 0
   puzzlePositionY: 0
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &1190104424 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 1df37a254924a7444909838c4af7e44f, type: 3}
@@ -3626,7 +3626,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 3
   puzzlePositionY: 0
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &1338425560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,7 +3906,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 1
   puzzlePositionY: 2
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &1440370056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3923,7 +3923,7 @@ GameObject:
   - component: {fileID: 1440370062}
   - component: {fileID: 1440370063}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: PanelCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4784,7 +4784,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 0
   puzzlePositionY: 2
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1001 &1776275809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7267,7 +7267,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 1
   puzzlePositionY: 0
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1 &2084861102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7940,7 +7940,7 @@ MonoBehaviour:
   pos: {fileID: 238746307}
   puzzlePositionX: 2
   puzzlePositionY: 2
-  Panel: {fileID: 0}
+  Panel: {fileID: 1440370056}
 --- !u!1001 &878895635806002129
 PrefabInstance:
   m_ObjectHideFlags: 0
