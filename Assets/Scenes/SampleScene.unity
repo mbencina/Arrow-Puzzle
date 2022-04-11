@@ -4240,6 +4240,7 @@ MonoBehaviour:
   fakeArrow: {fileID: 1190104424}
   outScript: {fileID: 696230799}
   shootAnother: 1
+  arrowSpeed: 10
 --- !u!4 &1457121530
 Transform:
   m_ObjectHideFlags: 0

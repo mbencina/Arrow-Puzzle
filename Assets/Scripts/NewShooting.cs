@@ -14,6 +14,7 @@ public class NewShooting : MonoBehaviour
     public GameObject fakeArrow;
     public raycastTest outScript;
     public bool shootAnother = true; // sent by other script TODO uporabi; pa še nek toggle k lah izklop bow & arrow more bit
+    public float arrowSpeed = 10.0f;
 
     private Vector3 direction = new Vector3(0, 0, 1);
     private Vector3 initialPosition = new Vector3(0, 0, 0);
@@ -59,7 +60,7 @@ public class NewShooting : MonoBehaviour
     {
         // flying arrows
         if (arrowFlying) {
-            gameObject.transform.Translate(direction * 7.0f * Time.deltaTime);
+            gameObject.transform.Translate(direction * arrowSpeed * Time.deltaTime);
             float distArr = Vector3.Distance(RightHand.transform.position, gameObject.transform.position);
             // Debug.Log(dist);
 
