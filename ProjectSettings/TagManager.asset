@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - PuzzlePiece
+<<<<<<< HEAD
+=======
+  - Bubble
+  - Canvas
+>>>>>>> d9d94f460282436e24019bdd7aff38b01b961672
   layers:
   - Default
   - TransparentFX
