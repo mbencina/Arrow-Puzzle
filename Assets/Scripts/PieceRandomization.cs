@@ -19,7 +19,6 @@ namespace PuzzlePieces {
         /// </summary>
         public float[] limitValues = { 6.0f, -6.0f, 1.0f, -1.0f };
 
-        public Transform player;
 
 
         /// <summary>
