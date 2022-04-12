@@ -41,18 +41,8 @@ public class ArrowShooter : MonoBehaviour
         if (arrowFlying)
         {
             bool resetArrow = false;
-<<<<<<< HEAD
             gameObject.transform.Translate(Crosshair.position * 5.0f * Time.deltaTime);
-=======
-            //gameObject.transform.Translate(direction * 5.0f * Time.deltaTime);
 
-            //HELI
-            target = crosshair.transform.position;
-
-            StartCoroutine(MoveAlong());
-            //HELI
-
->>>>>>> d9d94f460282436e24019bdd7aff38b01b961672
             float dist = Vector3.Distance(initialPosition, gameObject.transform.position);
             // Debug.Log(dist);
             if (dist > maxDist)
@@ -71,19 +61,5 @@ public class ArrowShooter : MonoBehaviour
     }
     // TODO when we will hit a piece we will respawn arrow but we will disable it;
     // when piece is placed we enable the arrow again
-<<<<<<< HEAD
 }
-=======
 
-    //HELI
-    public IEnumerator MoveAlong()
-    {
-        while(transform.position != target)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * 5.0f);
-            yield return null;
-        }
-    }
-    //HELI
-}
->>>>>>> d9d94f460282436e24019bdd7aff38b01b961672
