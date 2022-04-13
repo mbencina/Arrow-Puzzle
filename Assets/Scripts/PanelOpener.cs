@@ -29,7 +29,7 @@ namespace Menus
         /// </summary>
         private void Update()
         {
-            if (open)
+            if (open == true)
             {
                 OpenPanel();
                 open = false;
@@ -48,10 +48,11 @@ namespace Menus
                 Debug.Log("Panel " + isActive);
                 Panel.SetActive(!isActive);
 
-                if (open)
+                audio.Play(0);
+                /*if (open)
                 {
                     audio.Play(0);
-                }
+                }*/
             }
         }
 
