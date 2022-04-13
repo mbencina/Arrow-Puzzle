@@ -27,32 +27,31 @@ namespace Menus
         /// <summary>
         /// Checks on every frame if the panel needs to be opened
         /// </summary>
-        private void Update()
+        /*private void Update()
         {
             if (open == true)
             {
                 OpenPanel();
                 open = false;
             }
-        }
+        }*/
 
         /// <summary>
         /// Opens the panel where the congratulation message is displayed
         /// </summary>
         public void OpenPanel()
         {
+            open = !open;
             if (Panel != null)
-            //if (Panel != null && open == true)
             {
                 bool isActive = Panel.activeSelf;
                 Debug.Log("Panel " + isActive);
                 Panel.SetActive(!isActive);
 
-                audio.Play(0);
-                /*if (open)
+                if (open)
                 {
                     audio.Play(0);
-                }*/
+                }
             }
         }
 

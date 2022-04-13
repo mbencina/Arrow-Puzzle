@@ -43,9 +43,10 @@ public class PuzzlePlacement : MonoBehaviour
                     count++;
                     if (count == 12)
                     {
-                         panelOpener = Panel.GetComponent<Menus.PanelOpener>();
+                        Panel.GetComponent<Menus.PanelOpener>().OpenPanel();
+                         /*panelOpener = Panel.GetComponent<Menus.PanelOpener>();
                          bool isOpen = panelOpener.open;
-                         panelOpener.open = !isOpen;
+                         panelOpener.open = !isOpen;*/
                     }
                     
                     
