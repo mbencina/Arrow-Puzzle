@@ -55,13 +55,16 @@ namespace PuzzlePieces
         {
             foreach (GameObject piece in pieces)
             {
-                //piece.transform.SetParent(null);
                 Debug.Log("NEW");
                 GenerateVector();
 
-                piece.transform.position = vector;
+                Debug.Log("PIECE: " + piece);
+                Debug.Log(vector);
+
+                piece.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
 
                 RotatePiece(piece);
+                piece.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
 
@@ -92,7 +95,7 @@ namespace PuzzlePieces
         public bool IsOnTable(Vector3 place)
         {
             ;
-            if (place.z > 0 && place.x < 0 ||
+            if (place.z <= 0 && place.x >= 0 ||
                 System.Math.Abs(place.y) * 1.25 >= System.Math.Abs(place.x) &&
                 System.Math.Abs(place.y) * 1.25 >= System.Math.Abs(place.z))
             {
