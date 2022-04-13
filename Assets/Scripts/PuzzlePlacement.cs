@@ -41,7 +41,7 @@ public class PuzzlePlacement : MonoBehaviour
                     puzzle.transform.position = new Vector3(puzzle.transform.position.x + i * 0.01f + 1.35f, puzzle.transform.position.y - 0.8f - j * 0.01f, puzzle.transform.position.z);
                     puzzle.transform.eulerAngles = new Vector3(0, -66, 0);
                     count++;
-                    if (count < 12)
+                    if (count == 12)
                     {
                        panelOpener = Panel.GetComponent<Menus.PanelOpener>();
                         bool isOpen = panelOpener.open;

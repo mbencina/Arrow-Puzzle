@@ -19,10 +19,6 @@ namespace Menus
         /// </summary>
         public bool open = false;
         /// <summary>
-        /// Truth value for when to close the panel
-        /// </summary>
-        public bool close = false;
-        /// <summary>
         /// The audio that plays when the puzzle is completed
         /// </summary>
         public new AudioSource audio;
@@ -37,8 +33,6 @@ namespace Menus
             {
                 OpenPanel();
                 open = false;
-                close = true;
-                StartCoroutine(ClosePanel());
             }
         }
 
@@ -47,7 +41,7 @@ namespace Menus
         /// </summary>
         public void OpenPanel()
         {
-            if (Panel != null && (open || close))
+            if (Panel != null)
             //if (Panel != null && open == true)
             {
                 bool isActive = Panel.activeSelf;
@@ -57,9 +51,11 @@ namespace Menus
                 if (open)
                 {
                     audio.Play(0);
+
+                    StartCoroutine(ClosePanel());
+                    StopCoroutine(ClosePanel());
                 }
             }
-            close = false;
         }
 
         /// <summary>
