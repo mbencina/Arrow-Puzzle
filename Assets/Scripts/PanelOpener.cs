@@ -51,9 +51,6 @@ namespace Menus
                 if (open)
                 {
                     audio.Play(0);
-
-                    StartCoroutine(ClosePanel());
-                    StopCoroutine(ClosePanel());
                 }
             }
         }
