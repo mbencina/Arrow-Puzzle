@@ -33,7 +33,7 @@ public class PuzzlePlacement : MonoBehaviour
                     new Vector3(pos.transform.position.x + i * 0.01f + 1.35f, 
                     pos.transform.position.y - 0.8f - j * 0.01f, pos.transform.position.z));
                 //Debug.Log(i + "i "+j+" j "+Distance+"dist");
-                if (true)
+                if (Distance < 4)
                 {
                     pos.transform.localScale = puzzle.transform.localScale;
                     rb.isKinematic = true;

@@ -41,12 +41,12 @@ namespace Menus
         /// </summary>
         public void OpenPanel()
         {
-            open = !open;
+            open = true;
             if (Panel != null)
             {
-                bool isActive = Panel.activeSelf;
+                //bool isActive = Panel.activeSelf;
                 //Debug.Log("Panel " + isActive);
-                Panel.SetActive(!isActive);
+                Panel.SetActive(true);
 
                 if (open)
                 {
