@@ -13,7 +13,7 @@ public class PuzzlePlacement : MonoBehaviour
     
     public bool snapped;
 
-    public GameObject Panel;
+    //public GameObject Panel;
     private Menus.PanelOpener panelOpener;
     // Start is called before the first frame update
     void Start()

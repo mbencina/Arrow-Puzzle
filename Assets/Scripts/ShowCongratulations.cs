@@ -17,6 +17,7 @@ public class ShowCongratulations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Panel.GetComponent<Menus.PanelOpener>().OpenPanel();
         foreach (GameObject g in snaps)
         {
             if (!g.GetComponent<PuzzlePlacement>().snapped)
