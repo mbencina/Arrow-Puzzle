@@ -45,7 +45,7 @@ namespace Menus
             if (Panel != null)
             {
                 bool isActive = Panel.activeSelf;
-                Debug.Log("Panel " + isActive);
+                //Debug.Log("Panel " + isActive);
                 Panel.SetActive(!isActive);
 
                 if (open)

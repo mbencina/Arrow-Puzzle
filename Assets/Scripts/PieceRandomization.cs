@@ -55,11 +55,11 @@ namespace PuzzlePieces
         {
             foreach (GameObject piece in pieces)
             {
-                Debug.Log("NEW");
+                //Debug.Log("NEW");
                 GenerateVector();
 
-                Debug.Log("PIECE: " + piece);
-                Debug.Log(vector);
+                //Debug.Log("PIECE: " + piece);
+                //Debug.Log(vector);
 
                 piece.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
 
@@ -110,8 +110,8 @@ namespace PuzzlePieces
         /// <param name="piece"></param>
         public void RotatePiece(GameObject piece)
         {
-            Debug.Log("PIECE: " + piece);
-            Debug.Log(vector);
+            //Debug.Log("PIECE: " + piece);
+            //Debug.Log(vector);
             
             if (vector.z >= 0)
             {
