@@ -22,6 +22,10 @@ public class NewShooting : MonoBehaviour
     private bool puzzleHit = false;
     private RaycastHit Hit;
 
+    // Audio sources
+    public AudioSource hitSound;
+    public AudioSource releaseSound;
+
     private void Awake()
     {
         inputAction.action.started += DoAction;
@@ -51,6 +55,8 @@ public class NewShooting : MonoBehaviour
                 puzzleHit = true;
                 outScript.pieceHit = Hit;
             }
+            // Sound for when the array is released 
+            releaseSound.Play(0);
             arrowFlying = true;
             shootAnother = false;
         }
@@ -76,6 +82,8 @@ public class NewShooting : MonoBehaviour
                     arrowFlying = false;
                     puzzleHit = false;
 
+                    // Sound for when the arrow hits a piece
+                    hitSound.Play(0);
                     // here we let other script know we have hit something
                     outScript.arrowHit = true;
                 }
