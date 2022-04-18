@@ -16,11 +16,11 @@ public class InvokePanel : MonoBehaviour
     /// </summary>
     public void InvokeMessage()
     {
-        //Panel.GetComponent<Menus.PanelOpener>().OpenPanel();
-        open = Panel.GetComponent<Menus.PanelOpener>();
+        Panel.GetComponent<Menus.PanelOpener>().OpenPanel();
+        /*open = Panel.GetComponent<Menus.PanelOpener>();
         bool isOpen = open.open;
-        open.open = !isOpen;
-
+        open.open = !isOpen;*/
+        
     }
 
 }
