@@ -11,9 +11,13 @@ namespace Menus
     public class PanelOpener : MonoBehaviour
     {
         /// <summary>
-        /// Panel for displaying congratulation messages
+        /// Panel for displaying congratulation messages, in english
         /// </summary>
-        public GameObject Panel;
+        public GameObject enPanel;
+        /// <summary>
+        /// Panel for displaying congratulation messages, in finnish
+        /// </summary>
+        public GameObject fiPanel;
         /// <summary>
         /// Truth value for when to open the panel
         /// </summary>
@@ -26,6 +30,8 @@ namespace Menus
         public GameObject enQuit;
         public GameObject fiQuit;
 
+        private GameObject Panel;
+
         public void Start()
         {
             string language = PlayerPrefs.GetString("language");
@@ -34,11 +40,13 @@ namespace Menus
             {
                 enQuit.SetActive(true);
                 fiQuit.SetActive(false);
+                Panel = enPanel;
             }
             else if (language == "finnish")
             {
                 enQuit.SetActive(false);
                 fiQuit.SetActive(true);
+                Panel = fiPanel;
             }
 
         }
