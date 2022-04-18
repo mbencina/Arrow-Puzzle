@@ -23,6 +23,25 @@ namespace Menus
         /// </summary>
         public new AudioSource audio;
 
+        public GameObject enQuit;
+        public GameObject fiQuit;
+
+        public void Start()
+        {
+            string language = PlayerPrefs.GetString("language");
+
+            if (language == "english")
+            {
+                enQuit.SetActive(true);
+                fiQuit.SetActive(false);
+            }
+            else if (language == "finnish")
+            {
+                enQuit.SetActive(false);
+                fiQuit.SetActive(true);
+            }
+
+        }
 
         /// <summary>
         /// Checks on every frame if the panel needs to be opened
