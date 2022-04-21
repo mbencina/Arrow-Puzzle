@@ -81,15 +81,5 @@ namespace Menus
                 }
             }
         }
-
-        /// <summary>
-        /// Triggers OpenPanel-method after a short wait.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerator ClosePanel()
-        {
-            yield return new WaitForSeconds(3.0f);
-            OpenPanel();
-        }
     }
 }

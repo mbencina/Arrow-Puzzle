@@ -7,6 +7,9 @@ public class ShowCongratulations : MonoBehaviour
     public GameObject Panel;
     GameObject [] snaps;
     bool show;
+
+    int counter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +18,7 @@ public class ShowCongratulations : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         foreach (GameObject g in snaps)
         {
@@ -26,11 +29,12 @@ public class ShowCongratulations : MonoBehaviour
             else
             {
                 show = true;
+                counter++;
             }
         }
         if (show)
         {
             Panel.GetComponent<Menus.PanelOpener>().OpenPanel();
         }
-    }
+    }*/
 }
