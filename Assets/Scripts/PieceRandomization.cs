@@ -10,9 +10,10 @@ namespace PuzzlePieces
     /// </summary>
     public class PieceRandomization : MonoBehaviour
     {
-        // Variables
+        // List of the puzzle pieces
         private List<GameObject> pieces = new List<GameObject>();
 
+        // Vector for setting the new positions of the pieces
         private Vector3 vector = new Vector3(0, 0, 0);
 
         /// <summary>
@@ -53,15 +54,18 @@ namespace PuzzlePieces
         {
             foreach (GameObject piece in pieces)
             {
-                //Debug.Log("NEW");
+                // Generating a position
                 GenerateVector();
 
                 //Debug.Log("PIECE: " + piece);
                 //Debug.Log(vector);
 
+                // Setting the piece to a new position
                 piece.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
 
+                // Rotating the piece to face the player
                 RotatePiece(piece);
+                // Setting the piece in its place
                 piece.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
@@ -72,16 +76,20 @@ namespace PuzzlePieces
         public void GenerateVector()
 
         {
+            // Creating a random vector
             Vector3 place = new Vector3(Random.Range(limitValues[1], limitValues[0]), Random.Range(0, limitValues[0]), Random.Range(limitValues[1], limitValues[0]));
+            // Checking if the place is inside the wanted area
             if (place.x >= limitValues[3] && place.x <= limitValues[2] &&
                 place.y >= limitValues[3] && place.y <= limitValues[2] &&
                 place.z >= limitValues[3] && place.z <= limitValues[2] || // Checking if the piece is too close to the player
-                IsOnTable(place) == true)  // Checking if the piece is on of behind the canvas
+                IsOnCanvas(place) == true)  // Checking if the piece is on of behind the canvas
             {
+                // Generating a new vector
                 GenerateVector();
             }
             else
             {
+                // Setting the public vector to indicate the place
                 vector = place;
             }
         }
@@ -91,9 +99,9 @@ namespace PuzzlePieces
         /// </summary>
         /// <param name="place">The current place of the puzzle piece</param>
         /// <returns>Truth value on if the piece is on or behind the table or not</returns>
-        public bool IsOnTable(Vector3 place)
+        public bool IsOnCanvas(Vector3 place)
         {
-            ;
+            // Checking if the piece is to high or on or behind the canvas
             if (place.z <= 0 && place.x >= 0 ||
                 System.Math.Abs(place.y) * 1.25 >= System.Math.Abs(place.x) &&
                 System.Math.Abs(place.y) * 1.25 >= System.Math.Abs(place.z))
@@ -113,9 +121,11 @@ namespace PuzzlePieces
 
             //Debug.Log("PIECE: " + piece);
             //Debug.Log(vector);
-            
+
+            // The pieces infront of the player
             if (vector.z >= 0)
             {
+                // On the right side of the player
                 if (vector.x > 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
                 {
                     float xRot = piece.transform.localRotation.eulerAngles.x;
@@ -128,6 +138,7 @@ namespace PuzzlePieces
                     float zRot = piece.transform.localRotation.eulerAngles.z;
                     piece.transform.rotation = Quaternion.Euler(xRot, 45, zRot);
                 }
+                // On the left side of the player
                 else if (vector.x < 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
                 {
                     float xRot = piece.transform.localRotation.eulerAngles.x;
@@ -141,8 +152,10 @@ namespace PuzzlePieces
                     piece.transform.rotation = Quaternion.Euler(xRot, -45, zRot);
                 }
             }
+            // The pieces behind the player
             else if (vector.z < 0)
             {
+                // On the right side of the player
                 if (vector.x > 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
                 {
                     float xRot = piece.transform.localRotation.eulerAngles.x;
@@ -155,6 +168,7 @@ namespace PuzzlePieces
                     float zRot = piece.transform.localRotation.eulerAngles.z;
                     piece.transform.rotation = Quaternion.Euler(xRot, 135, zRot);
                 }
+                // On the left side of the player
                 else if (vector.x < 0 && System.Math.Abs(vector.x) > System.Math.Abs(vector.z) * 2)
                 {
                     float xRot = piece.transform.localRotation.eulerAngles.x;
