@@ -51,7 +51,7 @@ public class CounterTest : MonoBehaviour
 
     public void MarkSnapped()
     {
-        pieces[counter].GetComponent<PuzzlePlacement>().snapped = true;
+        pieces[counter].GetComponent<PuzzlePieces.PuzzlePlacement>().snapped = true;
         counter++;
         Debug.Log("Counter: " + counter);
     }

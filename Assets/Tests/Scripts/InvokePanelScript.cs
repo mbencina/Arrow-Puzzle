@@ -9,7 +9,7 @@ public class InvokePanelScript : MonoBehaviour
     /// Panel where messages are displayed.
     /// </summary>
     public GameObject Panel;
-    private Menus.PanelOpener open;
+    private InGameMenu.PanelOpener open;
 
     /// <summary>
     /// Method to invoke PanelOpener script.
@@ -17,7 +17,7 @@ public class InvokePanelScript : MonoBehaviour
     public void InvokeMessage()
     {
         //Panel.GetComponent<Menus.PanelOpener>().OpenPanel();
-        open =  Panel.GetComponent<Menus.PanelOpener>();
+        open =  Panel.GetComponent<InGameMenu.PanelOpener>();
         bool isOpen = open.open;
         open.open = !isOpen;
         

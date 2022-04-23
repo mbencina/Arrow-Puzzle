@@ -36,7 +36,7 @@ namespace InGameMenu
             foreach (GameObject g in snaps)
             {
                 // Checking if the piece is snapped to the frame
-                if (g.GetComponent<PuzzlePlacement>().snapped)
+                if (g.GetComponent<PuzzlePieces.PuzzlePlacement>().snapped)
                 {
                     counter++;
                 }
@@ -45,7 +45,7 @@ namespace InGameMenu
             if (counter == 12)
             {
                 // Calling OpenPanel-method to show the congratulations-message
-                Panel.GetComponent<Menus.PanelOpener>().OpenPanel();
+                Panel.GetComponent<InGameMenu.PanelOpener>().OpenPanel();
             }
             // Reseting the counter for the next frame
             counter = 0;
