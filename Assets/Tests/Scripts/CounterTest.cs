@@ -17,7 +17,7 @@ public class CounterTest : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         foreach (GameObject g in pieces)
         {
@@ -34,7 +34,7 @@ public class CounterTest : MonoBehaviour
             Panel.GetComponent<Menus.PanelOpener>().OpenPanel();
         }
         snapped = 0;
-    }
+    }*/
 
     public void CreateList()
     {
