@@ -27,6 +27,11 @@ namespace Menus
         /// Switches the canvas that is shown in the menu
         /// </summary>
         /// <param name="name">The name of the canvas that is activated</param>
+        /// 
+        public void Start()
+        {
+            PlayerPrefs.SetInt("CounterText",0);
+        }
         public void SwitchCanvas(string name)
         {
             // If menu should be shown.
