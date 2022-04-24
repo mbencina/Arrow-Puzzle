@@ -81,7 +81,7 @@ namespace Shooting
                     puzzleHit = true;
                     outScript.pieceHit = Hit;
                 }
-                
+
                 // Sound for when the arrow is released 
                 releaseSound.Play(0);
                 arrowFlying = true;
@@ -91,21 +91,20 @@ namespace Shooting
 
         void Update()
         {
-            // flying arrows
+            // if arrow is flying we update its position
             if (arrowFlying) {
                 gameObject.transform.Translate(direction * arrowSpeed * Time.deltaTime);
                 float distArr = Vector3.Distance(RightHand.transform.position, gameObject.transform.position);
-                // Debug.Log(dist);
 
                 if (puzzleHit) {
                     float distObj = Vector3.Distance(RightHand.transform.position, Hit.transform.position);
+
+                    // this is how we check if arrow has hit a puzlle piece
                     if (distArr > distObj) {
                         // object hit with arrow
-                        // Debug.Log("object hit!");
-                        gameObject.transform.position = new Vector3(0, 0, 0); // this should be controller position
+                        gameObject.transform.position = new Vector3(0, 0, 0);
                         arrow.SetActive(false);
                         shootAnother = false;
-                        // fakeArrow.SetActive(true); // TODO remove while moving puzzle piece; enable when piece is placed; add public var to know when it stops;
                         arrowFlying = false;
                         puzzleHit = false;
 
@@ -118,7 +117,7 @@ namespace Shooting
 
                 // remove arrow that is too far
                 if (distArr > maxDist) {
-                    gameObject.transform.position = new Vector3(0, 0, 0); // this should be controller position
+                    gameObject.transform.position = new Vector3(0, 0, 0);
                     arrow.SetActive(false);
                     fakeArrow.SetActive(true);
                     arrowFlying = false;
