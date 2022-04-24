@@ -7,15 +7,31 @@ namespace Shooting
 {
     public class NewShooting : MonoBehaviour
     {
+        // input action of VR controller
         public InputActionReference inputAction = null;
-        // Reference to the gun i.e. bow:
+        
+        // reference to the gun i.e. bow:
         public Transform Gun;
+
+        // reference to right hand controller
         public Transform RightHand;
+
+        // adjustable maximal distance before arrow spawns again in hand
         public int maxDist = 8;
+
+        // reference to arrow
         public GameObject arrow;
+
+        // reference to fake arrow
         public GameObject fakeArrow;
+
+        // reference to raycastTest script
         public raycastTest outScript;
-        public bool shootAnother = true; // sent by other script TODO uporabi; pa še nek toggle k lah izklop bow & arrow more bit
+
+        // is manipulated by raycasttest script,  so we know we are done with puzzle placement
+        public bool shootAnother = true;
+
+        // adjustable arrow speed
         public float arrowSpeed = 10.0f;
 
         private Vector3 direction = new Vector3(0, 0, 1);
