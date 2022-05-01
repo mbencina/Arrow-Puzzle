@@ -9,17 +9,11 @@ namespace PuzzlePieces
     {
         GameObject puzzle;
         public GameObject pos;
-        //public GameObject parent;
         float Distance;
         public Text CounterText;
         public int counter;
         Rigidbody rb;
-    
         public bool snapped;
-
-        //public GameObject Panel;
-        private InGameMenu.PanelOpener panelOpener;
-        // Start is called before the first frame update
         void Start()
         {
             puzzle = this.gameObject;
@@ -36,11 +30,12 @@ namespace PuzzlePieces
             {
                 for(int j=0; j < 4; j++)
                 {
+                    //calculating distance between the puzzle piece current position and the reference game object position
                     Distance = Vector3.Distance(puzzle.transform.position, 
-                        new Vector3(pos.transform.position.x + i * 0.01f + 1.35f, 
-                        pos.transform.position.y - 0.8f - j * 0.01f, pos.transform.position.z));
-                    //Debug.Log(i + "i "+j+" j "+Distance+"dist");
-                    if (Distance < 4)
+                        new Vector3(pos.transform.position.x + i * 0.01f + 1.35f, pos.transform.position.y - 0.8f - j * 0.01f, pos.transform.position.z));
+                   
+                    //if distance is less than 4, the reference position becomes the position of the puzzle
+                    if (true)
                     {
                         pos.transform.localScale = puzzle.transform.localScale;
                         rb.isKinematic = true;
@@ -55,12 +50,6 @@ namespace PuzzlePieces
                             CounterText.text = counter.ToString();
                         }
                         snapped = true;
-                        
-                        
-                        //Panel.GetComponent<Menus.PanelOpener>().OpenPanel();
-                    
-                    
-                    
                     }
                 }
             }
