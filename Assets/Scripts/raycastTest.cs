@@ -5,44 +5,71 @@ using UnityEngine.InputSystem;
 
 namespace Shooting
 {
+    /// <summary>
+    /// A script that is used to grab an object after an arrow hit and to move the object.
+    /// </summary>
     public class raycastTest : MonoBehaviour
     {
-        // Reference to controller:
+        /// <summary>
+        /// Reference to controller:
+        /// </summary>
         public GameObject Controller;
 
-        // Maximum raycast distance:
+        /// <summary>
+        /// Maximum raycast distance:
+        /// </summary>
         public float maximumDistance = 50;
 
-        // Reference to the crosshair object:
+        /// <summary>
+        /// Reference to the crosshair object:
+        /// </summary>
         public Transform Crosshair;
         // Reference to the gun i.e. bow:
         public Transform Gun;
 
-        // Add the controller input here:
+        /// <summary>
+        /// Add the controller input here:
+        /// </summary>
         public InputActionReference testReference = null;
 
-        // The object that is moved:
+        /// <summary>
+        /// The object that is moved:
+        /// </summary>
         private Transform MoveObject;
 
-        // The object's collider:
+        /// <summary>
+        /// The object's collider:
+        /// </summary>
         private Collider MoveCollider;
 
-        // State of the object that is moved - moving or not:
+        /// <summary>
+        /// State of the object that is moved - moving or not:
+        /// </summary>
         private bool moving = false;
 
-        // State of the control button.
+        /// <summary>
+        /// State of the control button.
+        /// </summary>
         private bool toggle = true;
 
-        // We know when arrow has hit a puzzle piece
+        /// <summary>
+        /// We know when arrow has hit a puzzle piece
+        /// </summary>
         public bool arrowHit = false;
 
-        // The puzzle piece that was hit
+        /// <summary>
+        /// The puzzle piece that was hit
+        /// </summary>
         public RaycastHit pieceHit;
 
-        // Reference to the shooting script
+        /// <summary>
+        /// Reference to the shooting script
+        /// </summary>
         public Shooting.NewShooting shootingScript;
 
-        // distance of crosshair
+        /// <summary>
+        /// Distance of crosshair
+        /// </summary>
         public float crosshairDistance = 3.0f;
 
         private void Awake() {
@@ -53,7 +80,9 @@ namespace Shooting
             testReference.action.started -= DoAction;
         }
 
-        // Make dragging on and off:
+        /// <summary>
+        /// Make dragging on and off (parametert toggle) when controller button is clicked:
+        /// </summary>
         private void DoAction(InputAction.CallbackContext ctx)
         {
             if (!toggle) {
@@ -63,7 +92,11 @@ namespace Shooting
             }
         }
 
-        // Moves the object at the end of the raycast:
+        /// <summary>
+        /// Moves and rotates the object at the end of the raycast.
+        /// </summary>
+
+        // objectToMove is the object moved, position the new position and ctrl a refrence to the controller.
         void move(Transform objectToMove, Vector3 pos, GameObject ctrl) {
             // Change position:
             objectToMove.position = pos;
@@ -77,7 +110,11 @@ namespace Shooting
             objectToMove.rotation = Quaternion.Euler(xRot,yRot,zRot);
         }
  
-        // Update is called once per frame
+        /// <summary>
+        /// Update is called once per frame. The crosshair is moved along the controller. If the crosshair points at an object, 
+        /// the crosshair is on top of the object, otherwise determined amount of units in front of the controller.
+        /// Grabs the object after an arrow hit or releases the object if the controller is released.
+        /// </summary>
         void Update() {
             RaycastHit Hit;
 
@@ -85,7 +122,7 @@ namespace Shooting
                 // Move the crosshair:
                 Crosshair.transform.position = Hit.point;
             } else {
-                // Move the crosshair to a point that is 5 unit in fron tof the bow:
+                // Move the crosshair to a point that is crosshairDistance amount of units in fron tof the bow:
                 Crosshair.transform.position = Controller.transform.position + Controller.transform.forward * crosshairDistance;
             }
 
