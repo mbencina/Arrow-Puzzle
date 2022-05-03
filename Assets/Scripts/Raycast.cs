@@ -8,7 +8,7 @@ namespace Shooting
     /// <summary>
     /// A script that is used to grab an object after an arrow hit and to move the object.
     /// </summary>
-    public class raycastTest : MonoBehaviour
+    public class Raycast : MonoBehaviour
     {
         /// <summary>
         /// Reference to controller:

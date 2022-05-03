@@ -26,7 +26,7 @@ namespace Shooting
         public GameObject fakeArrow;
 
         // reference to raycastTest script
-        public raycastTest outScript;
+        public Raycast outScript;
 
         // is manipulated by raycasttest script,  so we know we are done with puzzle placement
         public bool shootAnother = true;
